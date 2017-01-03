@@ -1,0 +1,25 @@
+{
+  "name": "react_redux_generator",
+  "version": "1.0.0",
+  "description": "A script to generate different parts of react redux web application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidhu2000/react_redux_generator.git"
+  },
+  "keywords": [
+    "reactjs",
+    "redux",
+    "javascript",
+    "react"
+  ],
+  "author": "David Hu <davidhu314@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidhu2000/react_redux_generator/issues"
+  },
+  "homepage": "https://github.com/davidhu2000/react_redux_generator#readme"
+}

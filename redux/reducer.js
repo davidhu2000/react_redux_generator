@@ -26,7 +26,7 @@ export default rootReducer;`
 );
 
 
-function createReducer(path, name, ...actions){
+const createReducer = (path, name, ...actions) => {
   name = name.toLowerCase();
 
 
@@ -42,6 +42,6 @@ function createReducer(path, name, ...actions){
   }
 
   writeStream.end();
-}
+};
 
 module.exports = createReducer;

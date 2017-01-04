@@ -4,6 +4,7 @@ require('shelljs/global');
 const generateReducer = require('./redux/reducer.js');
 const generateStore = require('./redux/store.js');
 const generateAction = require('./redux/action.js');
+const generateUtil = require('./redux/util.js');
 
 let method = process.argv[2];
 let type = process.argv[3];
@@ -21,6 +22,9 @@ if(method === 'g' || method === 'generate') {
       break;
     case 'action':
       generateAction(name, actions);
+      break;
+    case 'util':
+      generateUtil(name, actions);
       break;
     default:
       console.log('Undefined type.');

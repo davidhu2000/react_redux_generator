@@ -1,15 +1,23 @@
 # Redux Generator
 
-This generate creates all the necessary files and a basic structure for a redux-react program. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
+This generator helps to create all the necessary files for react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
 ```
 frontend
   |- actions
+    |- session_actions.js
   |- components
-  |- middleware
+    |- session_form
+      |- session_form.jsx
+      |- session_form_container.jsx
   |- reducers
+    |- root_reducer.js
+    |- session_reducer.js
   |- store
+    |- store.js
   |- util
+    |- api_util.js
+  |- app.jsx
 ```
 
 ### Store

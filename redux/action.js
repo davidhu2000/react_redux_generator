@@ -1,19 +1,9 @@
 require('shelljs/global');
 const fs = require('fs');
 
-const actionNameCreator = name => {
-  let first;
-  let second;
-  let res = name.toUpperCase();
-  name.split('').forEach( (char, idx) => {
-    if (char === char.toUpperCase()) {
-      first = name.slice(0, idx).toUpperCase();
-      second = name.slice(idx).toUpperCase();
-      res = `${first}_${second}`;
-    }
-  });
-  return res;
-};
+const actionNameCreator = name => (
+  name.split(/(?=[A-Z])/).map( word => word.toUpperCase() ).join('_')
+);
 
 const writeConstant = constName => (
 `export const ${constName} = '${constName}';`

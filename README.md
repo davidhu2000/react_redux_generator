@@ -12,6 +12,8 @@ frontend
     |- session_form
       |- session_form.jsx
       |- session_form_container.jsx
+    |- app.jsx
+    |- root.jsx
   |- reducers
     |- root_reducer.js
     |- session_reducer.js
@@ -19,7 +21,7 @@ frontend
     |- store.js
   |- util
     |- api_util.js
-  |- app.jsx
+  |- project_name.jsx
 ```
 
 **Table of Content:**

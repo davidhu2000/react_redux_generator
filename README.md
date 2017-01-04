@@ -1,4 +1,4 @@
-# Redux Generator
+# React-Redux Generator
 
 This generator helps to create all the necessary files for react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
@@ -22,6 +22,7 @@ frontend
   |- app.jsx
 ```
 
+**Table of Content:**
 - [Action](#action)
 - [Reducer](#reducer)
 - [Store](#store)
@@ -40,7 +41,7 @@ or
 redux g store
 ```
 
-This will generate `store.js` inside the store folder in the format of:
+This will generate `frontend/store/store.js`:
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
@@ -57,7 +58,7 @@ const configureStore = (preloadedState = {}) => (
 export default configureStore;
 ```
 
-## Reducers
+## Reducer
 
 **Root Reducer**
 
@@ -67,7 +68,7 @@ To generate a root reducer, run
 redux g reducer root
 ```
 
-This will generate a file `root_reducer.js` with the following code:
+This will generate a file `frontend/reducer/root_reducer.js`:
 
 ```js
 import { combineReducers } from 'redux';
@@ -86,13 +87,15 @@ To generate a reducer, run
 redux g reducer [name]
 ```
 
+_Do not enter `_reducer.js` as part of the name_
+
 For example:
 
 ```
 redux g reducer session
 ```
 
-This will generate a file `session_reducer.js`. It will have a format of:
+This will generate a file `frontend/reducer/session_reducer.js`:
 
 ```js
 import { merge } from 'lodash';
@@ -114,8 +117,10 @@ export default sessionReducer;
 To generate an action file, run
 
 ```
-redux g action [name] [actions]
+redux g action [name] [action1] [action2] ...
 ```
+
+_Do not enter `_actions.js` as part of the name_
 
 For example:
 

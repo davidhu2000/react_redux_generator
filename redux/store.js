@@ -23,14 +23,14 @@ const generateStore = () => {
     if(exists) {
       console.log('Store already exists. I cannot afford to overwrite it.');
       return;
+    } else {
+      mkdir('-p',`frontend/store/`);
+      cd('frontend/store');
+      var writeStream = fs.createWriteStream('store.js');
+      writeStream.write(storeFormat());
+      writeStream.end();
     }
   });
-
-  mkdir('-p',`frontend/store/`);
-  cd('frontend/store');
-  var writeStream = fs.createWriteStream('store.js');
-  writeStream.write(storeFormat());
-  writeStream.end();
 };
 
 module.exports = generateStore;

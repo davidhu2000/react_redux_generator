@@ -1,6 +1,5 @@
 require('shelljs/global');
-
-var fs = require('fs');
+const fs = require('fs');
 
 const reducerFormat = name => (
 `import { merge } from 'lodash';
@@ -29,6 +28,12 @@ export default rootReducer;`
 const createReducer = (path, name, ...actions) => {
   name = name.toLowerCase();
 
+  fs.exists(`frontend/reducers/${name}_reducer.js`, (exists) => {
+    if(exists) {
+      console.log('Reducer already exists. I cannot overwrite it.');
+      return;
+    }
+  });
 
   let filename = `${name}_reducer.js`;
   mkdir('-p',`frontend/reducers/`);

@@ -1,5 +1,5 @@
 require('shelljs/global');
-var fs = require('fs');
+const fs = require('fs');
 
 const storeFormat = () => (
 `import { createStore, applyMiddleware } from 'redux';
@@ -18,6 +18,14 @@ export default configureStore;
 );
 
 const generateStore = () => {
+
+  fs.exists(`frontend/store/store.js`, (exists) => {
+    if(exists) {
+      console.log('Store already exists. I cannot afford to overwrite it.');
+      return;
+    }
+  });
+
   mkdir('-p',`frontend/store/`);
   cd('frontend/store');
   var writeStream = fs.createWriteStream('store.js');

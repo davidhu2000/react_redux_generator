@@ -3,6 +3,8 @@
 This generator helps to create all the necessary files for react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
 ```
+// example file structure
+
 frontend
   |- actions
     |- session_actions.js

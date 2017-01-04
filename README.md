@@ -79,6 +79,12 @@ export default rootReducer;
 To generate a reducer, run
 
 ```
+redux g reducer [name]
+```
+
+For example:
+
+```
 redux g reducer session
 ```
 
@@ -96,4 +102,34 @@ const sessionReducer = (state, action) => {
 }
 
 export default sessionReducer;
+```
+
+
+### Action
+
+To generate an action file, run
+
+```
+redux g action [name] [actions]
+```
+
+For example:
+
+```
+redux g action session receiveUser receiveError
+```
+
+The generator will create a file `session_actions.js` in the actions folder. It will interpet the actions to create constants and action objects. In this example, it will create a `.js` file like below:
+
+```js
+export const RECEIVE_USER = 'RECEIVE_USER';
+export const RECEIVE_ERROR = 'RECEIVE_ERROR';
+
+export const receiveUser = () => ({
+  type: RECEIVE_USER
+});
+
+export const receiveError = () => ({
+  type: RECEIVE_ERROR
+});
 ```

@@ -10,7 +10,7 @@ const ${name}Reducer = (state, action) => {
     default:
       return state;
   }
-}
+};
 
 export default ${name}Reducer;`
 );
@@ -32,21 +32,23 @@ const createReducer = (path, name, ...actions) => {
     if(exists) {
       console.log('Reducer already exists. I have no overwriting power.');
       return;
+    } else {
+      let filename = `${name}_reducer.js`;
+      mkdir('-p',`frontend/reducers/`);
+      cd('frontend/reducers');
+
+      var writeStream = fs.createWriteStream(filename);
+      if (name === 'root') {
+        writeStream.write(rootFormat());
+      } else {
+        writeStream.write(reducerFormat(name));
+      }
+
+      writeStream.end();
     }
   });
 
-  let filename = `${name}_reducer.js`;
-  mkdir('-p',`frontend/reducers/`);
-  cd('frontend/reducers');
 
-  var writeStream = fs.createWriteStream(filename);
-  if (name === 'root') {
-    writeStream.write(rootFormat());
-  } else {
-    writeStream.write(reducerFormat(name));
-  }
-
-  writeStream.end();
 };
 
 module.exports = createReducer;

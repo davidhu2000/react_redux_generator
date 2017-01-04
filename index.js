@@ -29,4 +29,6 @@ if(method === 'g' || method === 'generate') {
     default:
       console.log('Undefined type.');
   }
+} else {
+  console.log('I am not sure what you want to create...');
 }

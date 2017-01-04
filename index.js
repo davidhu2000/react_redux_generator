@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 require('shelljs/global');
+
 const generateReducer = require('./redux/reducer.js');
 const generateStore = require('./redux/store.js');
 const generateAction = require('./redux/action.js');
@@ -10,8 +11,6 @@ let name = process.argv[4];
 let actions = process.argv.slice(5);
 let path = pwd();
 
-console.log(actions);
-
 if(method === 'g' || method === 'generate') {
   switch(type) {
     case 'reducer':
@@ -21,11 +20,9 @@ if(method === 'g' || method === 'generate') {
       generateStore();
       break;
     case 'action':
-      generateAction();
+      generateAction(name, actions);
       break;
     default:
       console.log('Undefined type.');
   }
 }
-
-echo('done')

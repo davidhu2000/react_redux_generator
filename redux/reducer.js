@@ -2,15 +2,10 @@ require('shelljs/global');
 
 var fs = require('fs');
 
-function createReducer(path, name, ...actions){
-  let filename = `${name}_reducer.js`;
-  mkdir('-p',`frontend/reducers/`);
-  cd('frontend/reducers');
+const reducerFormat = name => (
+`import { merge } from 'lodash';
 
-  var writeStream = fs.createWriteStream(filename);
-  writeStream.write(`import { merge } from 'lodash';
-
-const ${name.toLowerCase()}Reducer = (state, action) => {
+const ${name}Reducer = (state, action) => {
   Object.freeze(state);
   switch(action.type) {
     default:
@@ -18,9 +13,33 @@ const ${name.toLowerCase()}Reducer = (state, action) => {
   }
 }
 
-export default ${name.toLowerCase()}Reducer;
+export default ${name}Reducer;`
+);
 
-  `);
+const rootFormat = () => (
+`import { combineReducers } from 'redux';
+
+const rootReducer = combineReducers(
+);
+
+export default rootReducer;`
+);
+
+
+function createReducer(path, name, ...actions){
+  name = name.toLowerCase();
+
+
+  let filename = `${name}_reducer.js`;
+  mkdir('-p',`frontend/reducers/`);
+  cd('frontend/reducers');
+
+  var writeStream = fs.createWriteStream(filename);
+  if (name === 'root') {
+    writeStream.write(rootFormat());
+  } else {
+    writeStream.write(reducerFormat(name));
+  }
 
   writeStream.end();
 }

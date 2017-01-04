@@ -30,7 +30,7 @@ const createReducer = (path, name, ...actions) => {
 
   fs.exists(`frontend/reducers/${name}_reducer.js`, (exists) => {
     if(exists) {
-      console.log('Reducer already exists. I cannot overwrite it.');
+      console.log('Reducer already exists. I have no overwriting power.');
       return;
     }
   });

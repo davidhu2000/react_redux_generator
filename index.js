@@ -6,9 +6,10 @@ const generateStore = require('./redux/store.js');
 let method = process.argv[2];
 let type = process.argv[3];
 let name = process.argv[4];
-let actions = process.argv.slice(4);
+let actions = process.argv.slice(5);
 let path = pwd();
 
+console.log(actions);
 
 if(method === 'g' || method === 'generate') {
   switch(type) {

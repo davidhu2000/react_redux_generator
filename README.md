@@ -22,7 +22,11 @@ frontend
   |- app.jsx
 ```
 
-### Store
+- [Action](#action)
+- [Reducer](#reducer)
+- [Store](#store)
+
+## Store
 
 To generate a store, run
 
@@ -53,7 +57,7 @@ const configureStore = (preloadedState = {}) => (
 export default configureStore;
 ```
 
-### Reducers
+## Reducers
 
 **Root Reducer**
 
@@ -105,7 +109,7 @@ export default sessionReducer;
 ```
 
 
-### Action
+## Action
 
 To generate an action file, run
 

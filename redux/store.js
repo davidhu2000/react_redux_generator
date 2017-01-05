@@ -5,7 +5,9 @@ const storeFormat = () => (
 `import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducers/root_reducer.js';
 
-const configureStore = (preloadedState = {}) => (
+const preloadedState = {};
+
+const configureStore = (preloadedState) => (
   createStore(
     rootReducer,
     preloadedState,

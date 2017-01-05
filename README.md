@@ -29,6 +29,7 @@ frontend
 - [Reducer](#reducer)
 - [Store](#store)
 - [Utility](#util)
+- [Component](#component)
 
 ## Store
 
@@ -170,4 +171,63 @@ export const requestUsers = () => (
 export const requestUser = () => (
   // your code here;
 );
+```
+
+## Component
+
+To generate a component run
+
+```
+redux g component [name]
+```
+
+For example,
+
+```
+redux g component user
+```
+
+This will generate two files
+
+- `/frontend/components/user.jsx`
+
+```js
+import React from 'react';
+
+class User extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        // your code here...
+      </div>
+    )
+  }
+}
+
+export default User;
+```
+
+- `/frontend/components/user_container.jsx`
+
+```js
+import React from 'react';
+import { connect } from 'react-redux';
+import User from './user.jsx';
+
+const mapStateToProps = props => ({
+  // your code here...
+});
+
+const mapDispatchToProps = dispatch => ({
+  // your code here...
+});
+
+export connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(User);
 ```

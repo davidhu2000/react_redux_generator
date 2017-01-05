@@ -6,6 +6,7 @@ const generateStore = require('./redux/store.js');
 const generateAction = require('./redux/action.js');
 const generateUtil = require('./redux/util.js');
 const generateComponent = require('./redux/component.js');
+const generateBase = require('./redux/base.js');
 
 let method = process.argv[2];
 let type = process.argv[3];
@@ -29,6 +30,10 @@ if(method === 'g' || method === 'generate') {
       break;
     case 'component':
       generateComponent(name, actions);
+      break;
+    case 'base':
+      generateBase(name);
+      generateStore();
       break;
     default:
       console.log('Undefined type.');

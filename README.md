@@ -26,99 +26,10 @@ frontend
 
 **Table of Content:**
 - [Action](#action)
+- [Component](#component)
 - [Reducer](#reducer)
 - [Store](#store)
 - [Utility](#util)
-- [Component](#component)
-
-## Store
-
-To generate a store, run the following code in the terminal:
-
-```
-redux generate store
-```
-
-or
-
-```
-redux g store
-```
-
-`g` is simply an alias for `generate`.
-
-This will generate `frontend/store/store.js`:
-
-```js
-import { createStore, applyMiddleware } from 'redux';
-import rootReducer from '../reducers/root_reducer.js';
-
-const preloadedState = {};
-
-const configureStore = (preloadedState) => (
-  createStore(
-    rootReducer,
-    preloadedState,
-    applyMiddleware()
-  )
-);
-
-export default configureStore;
-```
-
-## Reducer
-
-**Root Reducer**
-
-To generate a root reducer, run
-
-```
-redux g reducer root
-```
-
-This will generate a file `frontend/reducer/root_reducer.js`:
-
-```js
-import { combineReducers } from 'redux';
-
-const rootReducer = combineReducers(
-);
-
-export default rootReducer;
-```
-
-**Other Reducers**
-
-To generate a reducer, run
-
-```
-redux g reducer [name]
-```
-
-_Do not enter `_reducer.js` as part of the name_
-
-For example:
-
-```
-redux g reducer session
-```
-
-This will generate a file `frontend/reducer/session_reducer.js`:
-
-```js
-import { merge } from 'lodash';
-
-const sessionReducer = (state, action) => {
-  Object.freeze(state);
-  switch(action.type) {
-    default:
-      return state;
-  }
-}
-
-export default sessionReducer;
-```
-
 
 ## Action
 
@@ -149,32 +60,6 @@ export const receiveUser = () => ({
 export const receiveError = () => ({
   type: RECEIVE_ERROR
 });
-```
-
-## Utility
-
-To generate a utility file, run
-
-```
-redux g util [name] [action1] [action2]
-```
-
-For example:
-
-```
-redux g util api requestUsers requestUser
-```
-
-This will create a file `frontend/util/api_util.js`:
-
-```js
-export const requestUsers = () => (
-  // your code here;
-);
-
-export const requestUser = () => (
-  // your code here;
-);
 ```
 
 ## Component
@@ -234,4 +119,117 @@ export connect(
   mapStateToProps,
   mapDispatchToProps
 )(User);
+```
+
+## Reducer
+
+**Root Reducer**
+
+To generate a root reducer, run
+
+```
+redux g reducer root
+```
+
+This will generate a file `frontend/reducer/root_reducer.js`:
+
+```js
+import { combineReducers } from 'redux';
+
+const rootReducer = combineReducers(
+);
+
+export default rootReducer;
+```
+
+**Other Reducers**
+
+To generate a reducer, run
+
+```
+redux g reducer [name]
+```
+
+_Do not enter `_reducer.js` as part of the name_
+
+For example:
+
+```
+redux g reducer session
+```
+
+This will generate a file `frontend/reducer/session_reducer.js`:
+
+```js
+import { merge } from 'lodash';
+
+const sessionReducer = (state, action) => {
+  Object.freeze(state);
+  switch(action.type) {
+    default:
+      return state;
+  }
+}
+
+export default sessionReducer;
+```
+## Store
+
+To generate a store, run the following code in the terminal:
+
+```
+redux generate store
+```
+
+or
+
+```
+redux g store
+```
+
+`g` is simply an alias for `generate`.
+
+This will generate `frontend/store/store.js`:
+
+```js
+import { createStore, applyMiddleware } from 'redux';
+import rootReducer from '../reducers/root_reducer.js';
+
+const preloadedState = {};
+
+const configureStore = (preloadedState) => (
+  createStore(
+    rootReducer,
+    preloadedState,
+    applyMiddleware()
+  )
+);
+
+export default configureStore;
+```
+
+## Utility
+
+To generate a utility file, run
+
+```
+redux g util [name] [action1] [action2]
+```
+
+For example:
+
+```
+redux g util api requestUsers requestUser
+```
+
+This will create a file `frontend/util/api_util.js`:
+
+```js
+export const requestUsers = () => (
+  // your code here;
+);
+
+export const requestUser = () => (
+  // your code here;
+);
 ```

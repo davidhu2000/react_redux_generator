@@ -86,7 +86,7 @@ const generateBase = (name) => {
 
   generateOne('frontend/components', 'app');
   generateOne('frontend/components', 'root');
-  generateOne('frontend/', `${name}`);
+  generateOne('frontend', `${name}`);
 };
 
 module.exports = generateBase;

@@ -31,7 +31,7 @@ const generateUtil = (name, actions = []) => {
 
       writeStream.write(data);
       writeStream.close();
-
+      cd('..');
       logFunctions.createFileLog(`frontend/util/${name}_util.js`);
     }
   });

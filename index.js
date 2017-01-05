@@ -20,7 +20,7 @@ let path = pwd();
 if (possibleTypes.includes(type) === false) {
   logFunctions.noMethodErrorLog();
 } else if(name === undefined && type !== 'store') {
-  logFunctions.noNameErrorLog(method);
+  logFunctions.noNameErrorLog(type);
 } else {
   if(method === 'g' || method === 'generate') {
     switch(type) {

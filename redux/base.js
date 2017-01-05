@@ -2,6 +2,7 @@ require('shelljs/global');
 const fs = require('fs');
 
 const caseConverter = require('../helpers/case_converter.js');
+const logFunctions = require('../helpers/logs.js');
 
 const appJSX = () => (
 `import React from 'react';
@@ -48,8 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const generateOne = (path, name) => {
   fs.exists(`${path}/${name}.jsx`, (exists) => {
     if(exists) {
-      console.log('Store already exists. I cannot afford to overwrite it.');
-      return;
+      logFunctions.fileExistErrorLog();
     } else {
       mkdir('-p',`${path}/`);
       cd(path);
@@ -66,6 +66,8 @@ const generateOne = (path, name) => {
           writeStream.write(entryJSX());
       }
       writeStream.end();
+
+      logFunctions.createFileLog(`${path}/${name}.jsx`);
 
       if (path.split('/').length === 2) {
         cd('../..');
@@ -85,7 +87,6 @@ const generateBase = (name) => {
   generateOne('frontend/components', 'app');
   generateOne('frontend/components', 'root');
   generateOne('frontend/', `${name}`);
-
 };
 
 module.exports = generateBase;

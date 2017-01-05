@@ -2,6 +2,7 @@ require('shelljs/global');
 const fs = require('fs');
 
 const caseConverter = require('../helpers/case_converter.js');
+const logFunctions = require('../helpers/logs.js');
 
 const actionNameCreator = name => (
   name.split(/(?=[A-Z])/).map( word => word.toUpperCase() ).join('_')
@@ -19,13 +20,12 @@ const writeAction = (actionName, constName) => (
 );
 
 const generateAction = (name, actions) => {
+  let fullPath = `frontend/actions/${name}_actions.js`
 
-  fs.exists(`frontend/actions/${name}_actions.js`, (exists) => {
+  fs.exists(fullPath, (exists) => {
     if(exists) {
-      console.log('Action already exists. I just cannot.');
-      return;
+      logFunctions.fileExistErrorLog();
     } else {
-
       mkdir('-p', 'frontend/actions/');
       cd('frontend/actions');
 
@@ -51,6 +51,8 @@ const generateAction = (name, actions) => {
       writeStream.write(data);
 
       writeStream.close();
+
+      logFunctions.createFileLog(fullPath);
     }
   });
 };

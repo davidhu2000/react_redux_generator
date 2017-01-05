@@ -20,7 +20,8 @@
     "react",
     "react-redux",
     "generator",
-    "file generator"
+    "file generator",
+    "redux-file-gem"
   ],
   "author": "David Hu <davidhu314@gmail.com>",
   "license": "ISC",
@@ -29,6 +30,7 @@
   },
   "homepage": "https://github.com/davidhu2000/react_redux_generator#readme",
   "dependencies": {
+    "colors": "^1.1.2",
     "shelljs": "^0.7.5"
   }
 }

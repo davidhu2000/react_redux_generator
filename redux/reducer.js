@@ -2,6 +2,7 @@ require('shelljs/global');
 const fs = require('fs');
 
 const caseConverter = require('../helpers/case_converter.js');
+const logFunctions = require('../helpers/logs.js');
 
 const reducerFormat = name => (
 `import { merge } from 'lodash';
@@ -33,8 +34,7 @@ const createReducer = (path, name, ...actions) => {
 
   fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
     if(exists) {
-      console.log('Reducer already exists. I have no overwriting power.');
-      return;
+      logFunctions.fileExistErrorLog();
     } else {
       let filename = `${nameSC}_reducer.js`;
       mkdir('-p',`frontend/reducers/`);
@@ -48,6 +48,8 @@ const createReducer = (path, name, ...actions) => {
       }
 
       writeStream.end();
+
+      logFunctions.createFileLog(`frontend/reducers/${nameSC}_reducer.js`);
     }
   });
 

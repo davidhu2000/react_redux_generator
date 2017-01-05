@@ -2,6 +2,7 @@ require('shelljs/global');
 const fs = require('fs');
 
 const caseConverter = require('../helpers/case_converter.js');
+const logFunctions = require('../helpers/logs.js');
 
 const writeAction = (actionName) => (
 `export const ${actionName} = () => (
@@ -15,8 +16,7 @@ const generateUtil = (name, actions = []) => {
 
   fs.exists(`frontend/util/${name}_util.js`, (exists) => {
     if(exists) {
-      console.log('Utility already exists. I am afraid I cannot overwrite it.');
-      return;
+      logFunctions.fileExistErrorLog();
     } else {
 
       mkdir('-p', 'frontend/util/');
@@ -30,8 +30,9 @@ const generateUtil = (name, actions = []) => {
       }).join('\n');
 
       writeStream.write(data);
-
       writeStream.close();
+
+      logFunctions.createFileLog(`frontend/util/${name}_util.js`);
     }
   });
 };

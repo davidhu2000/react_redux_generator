@@ -2,6 +2,7 @@ require('shelljs/global');
 const fs = require('fs');
 
 const caseConverter = require('../helpers/case_converter.js');
+const logFunctions = require('../helpers/logs.js');
 
 const presentationComponent = (name) => (
 `import React from 'react';
@@ -50,8 +51,7 @@ const generateComponent = (name, actions) => {
 
   fs.exists(`frontend/components/${nameSC}/${nameSC}.jsx`, (exists) => {
     if(exists) {
-      console.log('Action already exists. Sorry, I cannot do it.');
-      return;
+      logFunctions.fileExistErrorLog();
     } else {
 
       mkdir('-p', `frontend/components/${nameSC}`);
@@ -62,10 +62,14 @@ const generateComponent = (name, actions) => {
       writeStreamPresentation.write(presentationData);
       writeStreamPresentation.close();
 
+      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`)
+
       let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
       let containerData = containerComponent(nameUCC);
       writeStreamContainer.write(containerData);
       writeStreamContainer.close();
+
+      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}_container.jsx`)
     }
   });
 };

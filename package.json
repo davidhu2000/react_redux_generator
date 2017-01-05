@@ -1,7 +1,7 @@
 {
-  "name": "react_redux_generator",
+  "name": "redux-file-gen",
   "version": "1.0.0",
-  "description": "A script to generate different parts of react redux web application",
+  "description": "Generates necessary files for react-redux application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -17,7 +17,10 @@
     "reactjs",
     "redux",
     "javascript",
-    "react"
+    "react",
+    "react-redux",
+    "generator",
+    "file generator"
   ],
   "author": "David Hu <davidhu314@gmail.com>",
   "license": "ISC",

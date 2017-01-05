@@ -1,6 +1,8 @@
 require('shelljs/global');
 const fs = require('fs');
 
+const caseConverter = require('../helpers/case_converter.js');
+
 const reducerFormat = name => (
 `import { merge } from 'lodash';
 
@@ -26,14 +28,15 @@ export default rootReducer;`
 
 
 const createReducer = (path, name, ...actions) => {
-  name = name.toLowerCase();
+  let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
+  let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
 
-  fs.exists(`frontend/reducers/${name}_reducer.js`, (exists) => {
+  fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
     if(exists) {
       console.log('Reducer already exists. I have no overwriting power.');
       return;
     } else {
-      let filename = `${name}_reducer.js`;
+      let filename = `${nameSC}_reducer.js`;
       mkdir('-p',`frontend/reducers/`);
       cd('frontend/reducers');
 
@@ -41,7 +44,7 @@ const createReducer = (path, name, ...actions) => {
       if (name === 'root') {
         writeStream.write(rootFormat());
       } else {
-        writeStream.write(reducerFormat(name));
+        writeStream.write(reducerFormat(nameLCC));
       }
 
       writeStream.end();

@@ -1,5 +1,3 @@
-// expect words to be in a type of camelCase
-
 const caseConverter = {
   toSnakeCase: words => (
     words.map( word => word.toLowerCase() ).join('_')
@@ -28,11 +26,6 @@ const caseConverter = {
   }
 };
 
-// ['snake_case', 'lowerCamelCase', 'UpperCamelCase', 'SCREAMING_CASE'].forEach( word => {
-//   console.log(caseConverter.convert(word, caseConverter.toSnakeCase));
-//   console.log(caseConverter.convert(word, caseConverter.toUpperCamelCase));
-//   console.log(caseConverter.convert(word, caseConverter.toLowerCamelCase));
-//   console.log(caseConverter.convert(word, caseConverter.toScreamingSnakeCase));
-// });
+
 
 module.exports = caseConverter;

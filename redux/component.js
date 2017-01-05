@@ -27,7 +27,7 @@ export default ${name};
 const containerComponent = name => (
 `import React from 'react';
 import { connect } from 'react-redux';
-import ${name} from './${caseConverter.toSnakeCase(name)}.jsx';
+import ${name} from './${caseConverter.convert(name, caseConverter.toSnakeCase)}.jsx';
 
 const mapStateToProps = props => ({
   // your code here...
@@ -45,23 +45,25 @@ export connect(
 );
 
 const generateComponent = (name, actions) => {
+  let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
+  let nameUCC = caseConverter.convert(name, caseConverter.toUpperCamelCase);
 
-  fs.exists(`frontend/components/${caseConverter.toSnakeCase(name)}/${caseConverter.toSnakeCase(name)}.jsx`, (exists) => {
+  fs.exists(`frontend/components/${nameSC}/${nameSC}.jsx`, (exists) => {
     if(exists) {
       console.log('Action already exists. Sorry, I cannot do it.');
       return;
     } else {
 
-      mkdir('-p', `frontend/components/${caseConverter.toSnakeCase(name)}`);
-      cd(`frontend/components/${caseConverter.toSnakeCase(name)}`);
+      mkdir('-p', `frontend/components/${nameSC}`);
+      cd(`frontend/components/${nameSC}`);
 
-      let writeStreamPresentation = fs.createWriteStream(`${caseConverter.toSnakeCase(name)}.jsx`);
-      let presentationData = presentationComponent(name);
+      let writeStreamPresentation = fs.createWriteStream(`${nameSC}.jsx`);
+      let presentationData = presentationComponent(nameUCC);
       writeStreamPresentation.write(presentationData);
       writeStreamPresentation.close();
 
-      let writeStreamContainer = fs.createWriteStream(`${caseConverter.toSnakeCase(name)}_container.jsx`);
-      let containerData = containerComponent(name);
+      let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
+      let containerData = containerComponent(nameUCC);
       writeStreamContainer.write(containerData);
       writeStreamContainer.close();
     }

@@ -1,6 +1,8 @@
 require('shelljs/global');
 const fs = require('fs');
 
+const caseConverter = require('../helpers/case_converter.js');
+
 const actionNameCreator = name => (
   name.split(/(?=[A-Z])/).map( word => word.toUpperCase() ).join('_')
 );
@@ -29,14 +31,20 @@ const generateAction = (name, actions) => {
 
       let writeStream = fs.createWriteStream(`${name}_actions.js`);
 
-      let constNames = actions.map( action => actionNameCreator(action));
+      let constNames = actions.map( action => (
+        caseConverter.convert(action, caseConverter.toScreamingSnakeCase)
+      ));
+
+      let actionNames = actions.map( action => (
+        caseConverter.convert(action, caseConverter.toLowerCamelCase)
+      ));
 
       let data = constNames.map( constName => (
         writeConstant(constName))
       ).join('\n');
 
       data += '\n\n';
-      data += actions.map( (action, idx) => (
+      data += actionNames.map( (action, idx) => (
         writeAction(action, constNames[idx])
       )).join('\n');
 

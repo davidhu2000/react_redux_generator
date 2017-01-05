@@ -1,6 +1,6 @@
 # React-Redux Generator
 
-This generator helps to create all the necessary files for react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
+This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
 ```
 // example file structure
@@ -33,7 +33,7 @@ frontend
 
 ## Store
 
-To generate a store, run
+To generate a store, run the following code in the terminal:
 
 ```
 redux generate store
@@ -45,13 +45,17 @@ or
 redux g store
 ```
 
+`g` is simply an alias for `generate`.
+
 This will generate `frontend/store/store.js`:
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../reducers/root_reducer.js';
 
-const configureStore = (preloadedState = {}) => (
+const preloadedState = {};
+
+const configureStore = (preloadedState) => (
   createStore(
     rootReducer,
     preloadedState,
@@ -132,7 +136,7 @@ For example:
 redux g action session receiveUser receiveError
 ```
 
-The generator will create a file `session_actions.js` in the actions folder. It will interpet the actions to create constants and action objects. In this example, it will create a `.js` file like below:
+The generator will create a file `frontend/actions/session_actions.js` in the actions folder. It will interpret the actions to create constants and action objects. In this example, it will create a `.js` file like below:
 
 ```js
 export const RECEIVE_USER = 'RECEIVE_USER';
@@ -161,7 +165,7 @@ For example:
 redux g util api requestUsers requestUser
 ```
 
-will create a file `frontend/util/api_util.js` with the following actions
+This will create a file `frontend/util/api_util.js`:
 
 ```js
 export const requestUsers = () => (

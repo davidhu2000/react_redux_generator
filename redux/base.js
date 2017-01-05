@@ -77,6 +77,9 @@ const generateOne = (path, name) => {
 };
 
 const generateBase = (name) => {
+  if(name === undefined) {
+    name = 'sample_app';
+  }
   name = caseConverter.convert(name, caseConverter.toSnakeCase);
 
   generateOne('frontend/components', 'app');

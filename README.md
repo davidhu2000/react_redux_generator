@@ -30,11 +30,66 @@ frontend
 ```
 
 **Table of Content:**
+- [Base](#base)
 - [Action](#action)
 - [Component](#component)
 - [Reducer](#reducer)
 - [Store](#store)
 - [Utility](#util)
+
+## Base files
+
+Running
+
+```
+redux g base
+```
+
+will create 3 files.
+
+```
+frontend/project_name.jsx
+frontend/components/app.jsx
+frontend/components/root.jsx
+```
+
+```js
+// project_name.jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import configureStore from './store/store.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  const root = document.getElementById('root');
+  const store = configureStore();
+
+  ReactDOM.render(<Root store={ store } />, root);
+});
+
+// root.jsx
+import React from 'react';
+import { Provider } from 'react-redux';
+import App from './app.jsx';
+
+const Root = ({ store }) => (
+  <Provider store={ store }>
+    <App />
+  </Provider>
+);
+
+export default Root;
+
+// app.jsx
+import React from 'react';
+
+const App = ({ store }) => (
+  <div>
+    <h1>App</h1>
+  </div>
+);
+
+export default App;
+```
 
 ## Action
 

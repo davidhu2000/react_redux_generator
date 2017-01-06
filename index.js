@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 require('shelljs/global');
+exec('npm link node_modules/redux-file-gen');
 
 const logFunctions = require('./helpers/logs.js');
 

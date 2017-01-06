@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "redux": "index.js",
-    "postinstall": "alias redux='npm run redux'"
   },
   "repository": {
     "type": "git",

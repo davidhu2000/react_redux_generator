@@ -4,7 +4,7 @@ This generator helps to create the necessary files for a react-redux application
 
 ## Installation
 ```
-npm install --save redux-file-gen
+npm install -g redux-file-gen
 ```
 
 ## Example file structure

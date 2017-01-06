@@ -32,7 +32,7 @@ const generateStore = () => {
       var writeStream = fs.createWriteStream('store.js');
       writeStream.write(storeFormat());
       writeStream.end();
-      cd('..');
+      cd('../..');
       logFunctions.createFileLog(`frontend/store/store.js`);
     }
   });

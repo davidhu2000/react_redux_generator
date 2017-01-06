@@ -4,12 +4,13 @@
   "description": "Generates necessary files for react-redux application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/davidhu2000/react_redux_generator.git"
   },
+  "preferGlobal": "true",
   "bin": {
     "redux": "index.js"
   },

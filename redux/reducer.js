@@ -27,6 +27,8 @@ const rootReducer = combineReducers(
 export default rootReducer;`
 );
 
+const createRootReducer = ()
+
 
 const createReducer = (path, name, ...actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
@@ -34,6 +36,7 @@ const createReducer = (path, name, ...actions) => {
 
   fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
     if(exists) {
+      console.log(fs.readdirSync('frontend/reducers'));
       logFunctions.fileExistErrorLog();
     } else {
       let filename = `${nameSC}_reducer.js`;

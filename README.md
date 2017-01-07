@@ -7,6 +7,8 @@ This generator helps to create the necessary files for a react-redux application
 npm install -g redux-file-gen
 ```
 
+In order to create the terminal command `redux`, this package needs to be installed globally.
+
 ## Example file structure
 
 ```
@@ -42,15 +44,22 @@ frontend
 Running
 
 ```
-redux g base
+redux generate base project_name
 ```
 
-will create 3 files.
+or
+
+```
+redux g base project_name
+```
+
+will create 4 files. `g` is simply an alias for `generate`.
 
 ```
 frontend/project_name.jsx
 frontend/components/app.jsx
 frontend/components/root.jsx
+frontend/store/store.js
 ```
 
 ```js
@@ -238,16 +247,8 @@ export default sessionReducer;
 To generate a store, run the following code in the terminal:
 
 ```
-redux generate store
-```
-
-or
-
-```
 redux g store
 ```
-
-`g` is simply an alias for `generate`.
 
 This will generate `frontend/store/store.js`:
 
@@ -273,7 +274,7 @@ export default configureStore;
 To generate a utility file, run
 
 ```
-redux g util [name] [action1] [action2]
+redux g util [name] [action1] [action2] ...
 ```
 
 For example:

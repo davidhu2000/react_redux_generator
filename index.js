@@ -3,6 +3,7 @@ require('shelljs/global');
 // exec('npm link node_modules/redux-file-gen');
 
 const logFunctions = require('./helpers/logs.js');
+const helpTemplates = require('./templates/help.js');
 
 const generateReducer = require('./redux/reducer.js');
 const generateStore = require('./redux/store.js');
@@ -18,7 +19,9 @@ let name = process.argv[4];
 let actions = process.argv.slice(5);
 let path = pwd();
 
-if (possibleTypes.includes(type) === false) {
+if (['help', '--help', '-h'].includes(method)) {
+  helpTemplates.helpTemplate();
+} else if (possibleTypes.includes(type) === false) {
   logFunctions.noMethodErrorLog();
 } else if(name === undefined && type !== 'store') {
   logFunctions.noNameErrorLog(type);

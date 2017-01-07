@@ -39,6 +39,20 @@ frontend
 - [Store](#store)
 - [Utility](#util)
 
+## Command helps
+To see all the available commands from the terminal, run
+```
+redux help
+```
+or
+```
+redux --help
+```
+or
+```
+redux -h
+```
+
 ## Base files
 
 Running

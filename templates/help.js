@@ -13,6 +13,14 @@ g can be used in place of generate
 `);
 };
 
+const baseHelp = () => {
+  console.log(`To generate the base files:
+    redux generate base [project_name]
+For example:
+    redux generate base pokedex
+`);
+};
+
 const actionHelp = () => {
   console.log(`To generate an action file:
     redux generate action [name] [action1] [action2] ...
@@ -52,6 +60,7 @@ For example:
 
 module.exports = {
   helpTemplate,
+  baseHelp,
   actionHelp,
   componentHelp,
   reducerHelp,

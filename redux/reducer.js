@@ -27,9 +27,6 @@ const rootReducer = combineReducers(
 export default rootReducer;`
 );
 
-const createRootReducer = ()
-
-
 const createReducer = (path, name, ...actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);

@@ -1,5 +1,7 @@
 # React-Redux File Generator
 
+[![npm version](https://badge.fury.io/js/redux-file-gen.svg)](https://badge.fury.io/js/redux-file-gen)
+
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
 ## Installation

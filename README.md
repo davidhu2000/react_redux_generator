@@ -270,15 +270,16 @@ This will generate `frontend/store/store.js`:
 
 ```js
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'react-redux';
 import rootReducer from '../reducers/root_reducer.js';
 
-const preloadedState = {};
+const _defaultState = {};
 
-const configureStore = (preloadedState) => (
+const configureStore = (preloadedState = _defaultState) => (
   createStore(
     rootReducer,
     preloadedState,
-    applyMiddleware()
+    applyMiddleware(thunk)
   )
 );
 

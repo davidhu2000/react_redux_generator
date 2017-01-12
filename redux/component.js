@@ -30,7 +30,7 @@ const containerComponent = name => (
 import { connect } from 'react-redux';
 import ${name} from './${caseConverter.convert(name, caseConverter.toSnakeCase)}.jsx';
 
-const mapStateToProps = props => ({
+const mapStateToProps = (state, ownProps) => ({
   // your code here...
 });
 

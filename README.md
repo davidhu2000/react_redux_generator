@@ -192,7 +192,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import User from './user.jsx';
 
-const mapStateToProps = props => ({
+const mapStateToProps = (state, ownProps) => ({
   // your code here...
 });
 

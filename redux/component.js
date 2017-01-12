@@ -38,7 +38,7 @@ const mapDispatchToProps = dispatch => ({
   // your code here...
 });
 
-export connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(${name});
@@ -62,14 +62,14 @@ const generateComponent = (name, actions) => {
       writeStreamPresentation.write(presentationData);
       writeStreamPresentation.close();
 
-      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`)
+      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
 
       let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
       let containerData = containerComponent(nameUCC);
       writeStreamContainer.write(containerData);
       writeStreamContainer.close();
 
-      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}_container.jsx`)
+      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}_container.jsx`);
     }
   });
 };

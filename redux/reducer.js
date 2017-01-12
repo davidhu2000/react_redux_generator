@@ -21,8 +21,9 @@ export default ${name}Reducer;`
 const rootFormat = () => (
 `import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers(
-);
+const rootReducer = combineReducers({
+
+});
 
 export default rootReducer;`
 );

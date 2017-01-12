@@ -200,7 +200,7 @@ const mapDispatchToProps = dispatch => ({
   // your code here...
 });
 
-export connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(User);
@@ -221,8 +221,9 @@ This will generate a file `frontend/reducer/root_reducer.js`:
 ```js
 import { combineReducers } from 'redux';
 
-const rootReducer = combineReducers(
-);
+const rootReducer = combineReducers({
+
+});
 
 export default rootReducer;
 ```

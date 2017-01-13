@@ -178,7 +178,7 @@ class User extends React.Component {
       <div>
         // your code here...
       </div>
-    )
+    );
   }
 }
 

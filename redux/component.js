@@ -17,7 +17,7 @@ class ${name} extends React.Component {
       <div>
         // your code here...
       </div>
-    )
+    );
   }
 }
 

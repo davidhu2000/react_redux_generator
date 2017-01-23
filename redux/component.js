@@ -4,6 +4,17 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions = require('../helpers/logs.js');
 
+const functionalComponent = (name) => (
+`import React from 'react';
+
+const ${name} = (props) => (
+
+);
+
+export default ${name};
+`
+);
+
 const presentationComponent = (name) => (
 `import React from 'react';
 
@@ -57,19 +68,32 @@ const generateComponent = (name, actions) => {
       mkdir('-p', `frontend/components/${nameSC}`);
       cd(`frontend/components/${nameSC}`);
 
-      let writeStreamPresentation = fs.createWriteStream(`${nameSC}.jsx`);
-      let presentationData = presentationComponent(nameUCC);
-      writeStreamPresentation.write(presentationData);
-      writeStreamPresentation.close();
+      if(['-f', '--functional'].includes(actions[0])) {
+        let writeStreamFunctional = fs.createWriteStream(`${nameSC}.jsx`);
+        let functionalData = functionalComponent(nameUCC);
+        writeStreamFunctional.write(functionalData);
+        writeStreamFunctional.close();
 
-      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
+        logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
 
-      let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
-      let containerData = containerComponent(nameUCC);
-      writeStreamContainer.write(containerData);
-      writeStreamContainer.close();
+      } else {
 
-      logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}_container.jsx`);
+        let writeStreamPresentation = fs.createWriteStream(`${nameSC}.jsx`);
+        let presentationData = presentationComponent(nameUCC);
+        writeStreamPresentation.write(presentationData);
+        writeStreamPresentation.close();
+
+        logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
+
+        let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
+        let containerData = containerComponent(nameUCC);
+        writeStreamContainer.write(containerData);
+        writeStreamContainer.close();
+
+        logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}_container.jsx`);
+      }
+
+
     }
   });
 };

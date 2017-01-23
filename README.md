@@ -247,13 +247,14 @@ To generate a root reducer, run
 redux g reducer root
 ```
 
-This will generate a file `frontend/reducer/root_reducer.js`:
+This will generate a file `frontend/reducer/root_reducer.js`. The generator will search through the reducers folder to find all the reducers that are already there and create the necessary import statements and key value pairs for `combineReducers`.
 
 ```js
 import { combineReducers } from 'redux';
+import sessionReducer from './session_reducer.js';
 
 const rootReducer = combineReducers({
-
+  session: sessionReducer
 });
 
 export default rootReducer;

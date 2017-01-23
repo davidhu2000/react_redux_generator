@@ -18,23 +18,46 @@ const ${name}Reducer = (state, action) => {
 export default ${name}Reducer;`
 );
 
-const rootFormat = () => (
+const rootFormat = (imports, keyPairs) => (
 `import { combineReducers } from 'redux';
+${imports}
 
 const rootReducer = combineReducers({
-
+${keyPairs}
 });
 
 export default rootReducer;`
 );
 
+const createRootReducerImports = reducerNameArray => {
+  return reducerNameArray.map( reducer => {
+    let name = reducer.split('.')[0];
+    let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
+    let nameSC = caseConverter.convert(reducer, caseConverter.toSnakeCase);
+
+    return `import ${nameLCC} from './${reducer}'`;
+
+  }).join('\n');
+};
+
+const createRootReducerKeyPairs = reducerNameArray => {
+  return reducerNameArray.map( reducer => {
+    let name = reducer.split('.')[0];
+    let key = name.split('_')[0];
+    let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
+
+    return `  ${key}: ${nameLCC}`;
+
+  }).join(',\n');
+};
+
 const createReducer = (path, name, ...actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
+  let reducerFiles = fs.readdirSync('frontend/reducers');
 
   fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
     if(exists) {
-      console.log(fs.readdirSync('frontend/reducers'));
       logFunctions.fileExistErrorLog();
     } else {
       let filename = `${nameSC}_reducer.js`;
@@ -43,7 +66,10 @@ const createReducer = (path, name, ...actions) => {
 
       var writeStream = fs.createWriteStream(filename);
       if (name === 'root') {
-        writeStream.write(rootFormat());
+        let importStatements = createRootReducerImports(reducerFiles);
+        let keyPairStatements = createRootReducerKeyPairs(reducerFiles);
+
+        writeStream.write(rootFormat(importStatements, keyPairStatements));
       } else {
         writeStream.write(reducerFormat(nameLCC));
       }
@@ -56,5 +82,7 @@ const createReducer = (path, name, ...actions) => {
 
 
 };
+
+let reducerArr = ['session_reducer.js', 'user_reducer.js', 'test_reducer.js'];
 
 module.exports = createReducer;

@@ -6,7 +6,7 @@ This generator helps to create the necessary files for a react-redux application
 
 ## New features in version 1.1
 - Component generator can accept `-f` and `-nc` flags.
-- When generator `root_reducer.js`, all existing reducers will be imported and added to `combineReducers`.
+- When generating `root_reducer.js`, all existing reducers will be imported and added to `combineReducers`.
 
 ## Installation
 ```
@@ -348,3 +348,7 @@ export const requestUser = () => (
   // your code here;
 );
 ```
+
+## Contributing
+
+To request a feature or report an issue, click [here](https://github.com/davidhu2000/react_redux_generator/issues).

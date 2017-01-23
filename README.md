@@ -214,11 +214,11 @@ The component command supports two flags
 ```js
 import React from 'react';
 
-const ${name} = (props) => (
+const ListItem = (props) => (
 
 );
 
-export default ${name};
+export default ListItem;
 ```
 
 - `-nc` or `--no-container`. This flag will tell the module not to create a container file.

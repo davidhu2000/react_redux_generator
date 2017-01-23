@@ -56,9 +56,10 @@ export default connect(
 `
 );
 
-const generateComponent = (name, actions) => {
+const generateComponent = (name, flags) => {
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
   let nameUCC = caseConverter.convert(name, caseConverter.toUpperCamelCase);
+  flags = flags.join('');
 
   fs.exists(`frontend/components/${nameSC}/${nameSC}.jsx`, (exists) => {
     if(exists) {
@@ -68,12 +69,11 @@ const generateComponent = (name, actions) => {
       mkdir('-p', `frontend/components/${nameSC}`);
       cd(`frontend/components/${nameSC}`);
 
-      if(['-f', '--functional'].includes(actions[0])) {
+      if(flags.includes('-f') || flags.includes('--functional')) {
         let writeStreamFunctional = fs.createWriteStream(`${nameSC}.jsx`);
         let functionalData = functionalComponent(nameUCC);
         writeStreamFunctional.write(functionalData);
         writeStreamFunctional.close();
-
         logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
 
       } else {
@@ -84,7 +84,9 @@ const generateComponent = (name, actions) => {
         writeStreamPresentation.close();
 
         logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
+      }
 
+      if(!flags.includes('-nc') && !flags.includes('--no-container')) {
         let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
         let containerData = containerComponent(nameUCC);
         writeStreamContainer.write(containerData);

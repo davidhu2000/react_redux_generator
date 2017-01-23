@@ -4,6 +4,10 @@
 
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
+## New features in version 1.1
+- Component generator can accept `-f` and `-nc` flags.
+- When generator `root_reducer.js`, all existing reducers will be imported and added to `combineReducers`.
+
 ## Installation
 ```
 npm install -g redux-file-gen

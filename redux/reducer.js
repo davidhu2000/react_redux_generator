@@ -54,7 +54,13 @@ const createRootReducerKeyPairs = reducerNameArray => {
 const createReducer = (path, name, ...actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
-  let reducerFiles = fs.readdirSync('frontend/reducers');
+  let reducerFiles;
+
+  if (fs.existsSync('frontend/reducers')) {
+    reducerFiles = fs.readdirSync('frontend/reducers');
+  } else {
+    reducerFiles = [];
+  }
 
   fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
     if(exists) {

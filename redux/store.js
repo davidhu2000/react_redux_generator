@@ -5,7 +5,7 @@ const logFunctions = require('../helpers/logs.js');
 
 const storeFormat = () => (
 `import { createStore, applyMiddleware } from 'redux';
-import thunk from 'react-redux';
+import thunk from 'redux-thunk';
 import rootReducer from '../reducers/root_reducer.js';
 
 const _defaultState = {};

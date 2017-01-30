@@ -89,6 +89,4 @@ const createReducer = (path, name, ...actions) => {
 
 };
 
-let reducerArr = ['session_reducer.js', 'user_reducer.js', 'test_reducer.js'];
-
 module.exports = createReducer;

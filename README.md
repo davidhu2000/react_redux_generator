@@ -4,9 +4,11 @@
 
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
+
 ## New features in version 1.1
 - Component generator can accept `-f` and `-nc` flags.
 - When generating `root_reducer.js`, all existing reducers will be imported and added to `combineReducers`.
+
 
 ## Installation
 ```
@@ -14,6 +16,7 @@ npm install -g redux-file-gen
 ```
 
 In order to create the terminal command `redux`, this package needs to be installed globally.
+
 
 ## Example file structure
 
@@ -45,6 +48,7 @@ frontend
 - [Store](#store)
 - [Utility](#util)
 
+
 ## Command helps
 To see all the available commands from the terminal, run
 ```
@@ -59,24 +63,25 @@ or
 redux -h
 ```
 
+
 ## Base files
 
 Running
 
 ```
-redux generate base project_name
+redux generate base [project_name]
 ```
 
 or
 
 ```
-redux g base project_name
+redux g base [project_name]
 ```
 
 will create 4 files. `g` is simply an alias for `generate`.
 
 ```
-frontend/project_name.jsx
+frontend/[project_name].jsx
 frontend/components/app.jsx
 frontend/components/root.jsx
 frontend/store/store.js
@@ -120,6 +125,7 @@ const App = ({ store }) => (
 export default App;
 ```
 
+
 ## Action
 
 To generate an action file, run
@@ -150,6 +156,7 @@ export const receiveError = () => ({
   type: RECEIVE_ERROR
 });
 ```
+
 
 ## Component
 
@@ -241,6 +248,7 @@ redux g component map --functional--no-container
 
 This will create a functional component file without a container.
 
+
 ## Reducer
 
 **Root Reducer**
@@ -295,6 +303,8 @@ const sessionReducer = (state, action) => {
 
 export default sessionReducer;
 ```
+
+
 ## Store
 
 To generate a store, run the following code in the terminal:
@@ -323,6 +333,7 @@ const configureStore = (preloadedState = _defaultState) => (
 export default configureStore;
 ```
 
+
 ## Utility
 
 To generate a utility file, run
@@ -348,6 +359,7 @@ export const requestUser = () => (
   // your code here;
 );
 ```
+
 
 ## Contributing
 

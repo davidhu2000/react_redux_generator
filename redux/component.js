@@ -36,10 +36,10 @@ export default ${name};
 `
 );
 
-const containerComponent = name => (
+const containerComponent = (nameUCC, nameSC) => (
 `import React from 'react';
 import { connect } from 'react-redux';
-import ${name} from './${caseConverter.convert(name, caseConverter.toSnakeCase)}.jsx';
+import ${nameUCC} from './${nameSC}.jsx';
 
 const mapStateToProps = (state, ownProps) => ({
   // your code here...
@@ -52,7 +52,7 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(${name});
+)(${nameUCC});
 `
 );
 
@@ -88,7 +88,7 @@ const generateComponent = (name, flags) => {
 
       if(!flags.includes('-nc') && !flags.includes('--no-container')) {
         let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
-        let containerData = containerComponent(nameUCC);
+        let containerData = containerComponent(nameUCC, nameSC);
         writeStreamContainer.write(containerData);
         writeStreamContainer.close();
 

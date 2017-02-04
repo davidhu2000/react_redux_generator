@@ -32,7 +32,13 @@ For example:
 
 const componentHelp = () => {
   console.log(`To generate a component and its container
+    redux generate component [name]
+For example:
     redux generate component user
+
+Acceptable flags:
+    -f or --functional
+    -nc or --no-container
 `);
 };
 

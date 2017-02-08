@@ -1,75 +1,49 @@
 const helpTemplate = () => {
   basicHelp();
-  actionHelp();
-  componentHelp();
-  reducerHelp();
-  storeHelp();
-  utilHelp();
+  commandHelp();
+  fileTypeHelp();
+  optionsHelp();
 };
+
+
 
 const basicHelp = () => {
-  console.log(`redux - main command
-g can be used in place of generate
+  console.log(`
+  Usage: redux [command] [fileType] [options]
+
 `);
 };
 
-const baseHelp = () => {
-  console.log(`To generate the base files:
-    redux generate base [project_name]
-For example:
-    redux generate base pokedex
+const commandHelp = () => {
+  console.log(`  Commands:
+
+      generate                                  use the file generator
+      g                                         alias for 'generate'
+    `);
+}
+
+const fileTypeHelp = () => {
+  console.log(`
+  File Types:
+
+      base <projectName>                        generate app.jsx, root.jsx, projectName.jsx, store.js
+      action <name> [action1] [action2] ...     generate action file with the specified actions
+      component <name> [options]                generate <name>.jsx and <name>_container.jsx
+      reducer <name>                            generate <name>_reducer.js
+      store                                     generate store.js
+      util <name> [util1] [util2] ...           generate <name>_util.js with specified utils.
 `);
-};
+}
 
-const actionHelp = () => {
-  console.log(`To generate an action file:
-    redux generate action [name] [action1] [action2] ...
-For example:
-    redux generate action session receiveUser receiveError
+const optionsHelp = () => {
+  console.log(`
+  Options:
+
+      -f, --functional                          create functional component
+      -nc, --no-container                       do not create component container
 `);
-};
-
-
-const componentHelp = () => {
-  console.log(`To generate a component and its container
-    redux generate component [name]
-For example:
-    redux generate component user
-
-Acceptable flags:
-    -f or --functional
-    -nc or --no-container
-`);
-};
-
-const reducerHelp = () => {
-  console.log(`To generate a reducer file:
-    redux generate reducer [name]
-For example:
-    redux generate reducer session
-`);
-};
-
-const storeHelp = () => {
-  console.log(`To generate a store file:
-    redux generate store
-`);
-};
-
-const utilHelp = () => {
-  console.log(`To generate an utility file:
-    redux generate util [name] [action1] [action2] ...
-For example:
-    redux generate util api login logout signup
-`);
-};
+}
 
 module.exports = {
-  helpTemplate,
-  baseHelp,
-  actionHelp,
-  componentHelp,
-  reducerHelp,
-  storeHelp,
-  utilHelp
+  helpTemplate
 };

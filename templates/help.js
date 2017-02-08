@@ -9,7 +9,7 @@ const helpTemplate = () => {
 
 const basicHelp = () => {
   console.log(`
-  Usage: redux [command] [fileType] [options]
+  Usage: redux [command] [file] [options]
 
 `);
 };
@@ -24,7 +24,7 @@ const commandHelp = () => {
 
 const fileTypeHelp = () => {
   console.log(`
-  File Types:
+  Files:
 
       base <projectName>                        generate app.jsx, root.jsx, <projectName>.jsx, store.js
       action <name> [action1] [action2] ...     generate <name>.action.js with the specified actions

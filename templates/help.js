@@ -26,8 +26,8 @@ const fileTypeHelp = () => {
   console.log(`
   File Types:
 
-      base <projectName>                        generate app.jsx, root.jsx, projectName.jsx, store.js
-      action <name> [action1] [action2] ...     generate action file with the specified actions
+      base <projectName>                        generate app.jsx, root.jsx, <projectName>.jsx, store.js
+      action <name> [action1] [action2] ...     generate <name>.action.js with the specified actions
       component <name> [options]                generate <name>.jsx and <name>_container.jsx
       reducer <name>                            generate <name>_reducer.js
       store                                     generate store.js
@@ -39,7 +39,7 @@ const optionsHelp = () => {
   console.log(`
   Options:
 
-      -f, --functional                          create functional component
+      -f,  --functional                         create functional component
       -nc, --no-container                       do not create component container
 `);
 }

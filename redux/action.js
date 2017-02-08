@@ -4,10 +4,6 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions = require('../helpers/logs.js');
 
-const actionNameCreator = name => (
-  name.split(/(?=[A-Z])/).map( word => word.toUpperCase() ).join('_')
-);
-
 const writeConstant = constName => (
 `export const ${constName} = '${constName}';`
 );

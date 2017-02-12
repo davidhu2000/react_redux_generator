@@ -4,30 +4,7 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions = require('../helpers/logs.js');
 
-const reducerFormat = name => (
-`import { merge } from 'lodash';
-
-const ${name}Reducer = (state, action) => {
-  Object.freeze(state);
-  switch(action.type) {
-    default:
-      return state;
-  }
-};
-
-export default ${name}Reducer;`
-);
-
-const rootFormat = (imports, keyPairs) => (
-`import { combineReducers } from 'redux';
-${imports}
-
-const rootReducer = combineReducers({
-${keyPairs}
-});
-
-export default rootReducer;`
-);
+const reducerTemplate = require('../templates/reducer.js');
 
 const createRootReducerImports = reducerNameArray => {
   return reducerNameArray.map( reducer => {
@@ -75,9 +52,9 @@ const createReducer = (path, name, ...actions) => {
         let importStatements = createRootReducerImports(reducerFiles);
         let keyPairStatements = createRootReducerKeyPairs(reducerFiles);
 
-        writeStream.write(rootFormat(importStatements, keyPairStatements));
+        writeStream.write(reducerTemplate.root(importStatements, keyPairStatements));
       } else {
-        writeStream.write(reducerFormat(nameLCC));
+        writeStream.write(reducerTemplate.reducer(nameLCC));
       }
 
       writeStream.end();

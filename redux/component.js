@@ -4,57 +4,7 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions = require('../helpers/logs.js');
 
-const functionalComponent = (name) => (
-`import React from 'react';
-
-const ${name} = (props) => (
-
-);
-
-export default ${name};
-`
-);
-
-const presentationComponent = (name) => (
-`import React from 'react';
-
-class ${name} extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        // your code here...
-      </div>
-    );
-  }
-}
-
-export default ${name};
-`
-);
-
-const containerComponent = (nameUCC, nameSC) => (
-`import React from 'react';
-import { connect } from 'react-redux';
-import ${nameUCC} from './${nameSC}.jsx';
-
-const mapStateToProps = (state, ownProps) => ({
-  // your code here...
-});
-
-const mapDispatchToProps = dispatch => ({
-  // your code here...
-});
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(${nameUCC});
-`
-);
+const componentTemplate = require('../templates/component.js');
 
 const generateComponent = (name, flags) => {
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
@@ -71,7 +21,7 @@ const generateComponent = (name, flags) => {
 
       if(flags.includes('-f') || flags.includes('--functional')) {
         let writeStreamFunctional = fs.createWriteStream(`${nameSC}.jsx`);
-        let functionalData = functionalComponent(nameUCC);
+        let functionalData = componentTemplate.functional(nameUCC);
         writeStreamFunctional.write(functionalData);
         writeStreamFunctional.close();
         logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
@@ -79,7 +29,7 @@ const generateComponent = (name, flags) => {
       } else {
 
         let writeStreamPresentation = fs.createWriteStream(`${nameSC}.jsx`);
-        let presentationData = presentationComponent(nameUCC);
+        let presentationData = componentTemplate.presentational(nameUCC);
         writeStreamPresentation.write(presentationData);
         writeStreamPresentation.close();
 
@@ -88,7 +38,7 @@ const generateComponent = (name, flags) => {
 
       if(!flags.includes('-nc') && !flags.includes('--no-container')) {
         let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
-        let containerData = containerComponent(nameUCC, nameSC);
+        let containerData = componentTemplate.container(nameUCC, nameSC);
         writeStreamContainer.write(containerData);
         writeStreamContainer.close();
 

@@ -8,6 +8,7 @@ This generator helps to create the necessary files for a react-redux application
 ## New features in version 1.1
 - Component generator can accept `-f` and `-nc` flags.
 - When generating `root_reducer.js`, all existing reducers will be imported and added to `combineReducers`.
+- `root_reducer.js` will update with import statement and key-value pairs whenever a new reducer is created.
 
 
 ## Installation
@@ -259,7 +260,7 @@ To generate a root reducer, run
 redux g reducer root
 ```
 
-This will generate a file `frontend/reducer/root_reducer.js`. The generator will search through the reducers folder to find all the reducers that are already there and create the necessary import statements and key value pairs for `combineReducers`.
+This will generate a file `frontend/reducer/root_reducer.js`. The generator will search through the reducers folder to find all the reducers that are already there and create the necessary import statements and key value pairs for `combineReducers`. Whenever a new reducer is created, `root_reducer.js` will update to include the necessary `import` statement and key-value pair for `combineReducers`
 
 ```js
 import { combineReducers } from 'redux';

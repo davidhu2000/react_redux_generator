@@ -20,6 +20,8 @@ let path          = pwd();
 
 if (['help', '--help', '-h'].includes(method)) {
   helpTemplates.helpTemplate();
+} else if (['version', '-v', '--version'].includes(method)) {
+  console.log('v' + require('./package.json').version);
 } else if (possibleTypes.includes(type) === false) {
   logFunctions.noMethodErrorLog();
 } else if(name === undefined && type !== 'store') {
@@ -46,7 +48,6 @@ if (['help', '--help', '-h'].includes(method)) {
         generateBase(name);
         generateStore();
         break;
-      default:
     }
   }
 }

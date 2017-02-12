@@ -28,6 +28,30 @@ const createRootReducerKeyPairs = reducerNameArray => {
   }).join(',\n');
 };
 
+const updateRootReducer = (nameLCC, nameSC) => {
+
+  fs.exists(`root_reducer.js`, (exists) => {
+    if(exists) {
+      let root = fs.readFileSync('root_reducer.js', 'utf8');
+      let keyValStr = 'const rootReducer = combineReducers({\n';
+      let kvIdx = root.indexOf(keyValStr) + keyValStr.length;
+      console.log('1');
+      console.log(root);
+      console.log('');
+      root = root.slice(0, kvIdx) + `  ${nameLCC}: ${nameLCC}Reducer,\n` + root.slice(kvIdx);
+      console.log('2');
+      console.log(root);
+      console.log('');
+      let importStr = 'import { combineReducers } from \'redux\';\n'
+      let iIdx = root.indexOf(importStr) + importStr.length;
+      root = root.slice(0, iIdx) + `import ${nameLCC}Reducer from './${nameSC}_reducer.js'\n` + root.slice(iIdx);
+      console.log('3');
+      console.log(root);
+      fs.writeFileSync('root_reducer.js', root);
+    }
+  });
+}
+
 const createReducer = (path, name, ...actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
@@ -51,13 +75,13 @@ const createReducer = (path, name, ...actions) => {
       if (name === 'root') {
         let importStatements = createRootReducerImports(reducerFiles);
         let keyPairStatements = createRootReducerKeyPairs(reducerFiles);
-
         writeStream.write(reducerTemplate.root(importStatements, keyPairStatements));
+        writeStream.end();
       } else {
         writeStream.write(reducerTemplate.reducer(nameLCC));
+        writeStream.end();
+        updateRootReducer(nameLCC, nameSC);
       }
-
-      writeStream.end();
 
       logFunctions.createFileLog(`frontend/reducers/${nameSC}_reducer.js`);
     }

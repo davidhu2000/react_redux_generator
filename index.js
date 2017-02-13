@@ -16,7 +16,6 @@ let method        = process.argv[2];
 let type          = process.argv[3];
 let name          = process.argv[4];
 let actions       = process.argv.slice(5);
-let path          = pwd();
 
 if (['help', '--help', '-h'].includes(method)) {
   helpTemplates.helpTemplate();
@@ -30,7 +29,7 @@ if (['help', '--help', '-h'].includes(method)) {
   if(method === 'g' || method === 'generate') {
     switch(type) {
       case 'reducer':
-        generateReducer(path, name, actions);
+        generateReducer(name, actions);
         break;
       case 'store':
         generateStore();

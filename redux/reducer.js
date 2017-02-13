@@ -35,24 +35,19 @@ const updateRootReducer = (nameLCC, nameSC) => {
       let root = fs.readFileSync('root_reducer.js', 'utf8');
       let keyValStr = 'const rootReducer = combineReducers({\n';
       let kvIdx = root.indexOf(keyValStr) + keyValStr.length;
-      console.log('1');
-      console.log(root);
-      console.log('');
+
       root = root.slice(0, kvIdx) + `  ${nameLCC}: ${nameLCC}Reducer,\n` + root.slice(kvIdx);
-      console.log('2');
-      console.log(root);
-      console.log('');
+
       let importStr = 'import { combineReducers } from \'redux\';\n'
       let iIdx = root.indexOf(importStr) + importStr.length;
       root = root.slice(0, iIdx) + `import ${nameLCC}Reducer from './${nameSC}_reducer.js'\n` + root.slice(iIdx);
-      console.log('3');
-      console.log(root);
+
       fs.writeFileSync('root_reducer.js', root);
     }
   });
 }
 
-const createReducer = (path, name, ...actions) => {
+const createReducer = (name, ...actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
   let reducerFiles;

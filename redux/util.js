@@ -2,7 +2,7 @@ require('shelljs/global');
 const fs = require('fs');
 
 const caseConverter = require('../helpers/case_converter.js');
-const logFunctions = require('../helpers/logs.js');
+const logFunctions  = require('../helpers/logs.js');
 
 const writeAction = (actionName) => (
 `export const ${actionName} = () => (

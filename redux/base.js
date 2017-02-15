@@ -2,9 +2,8 @@ require('shelljs/global');
 const fs = require('fs');
 
 const caseConverter = require('../helpers/case_converter.js');
-const logFunctions = require('../helpers/logs.js');
-
-const baseTemplate = require('../templates/base.js');
+const logFunctions  = require('../helpers/logs.js');
+const baseTemplate  = require('../templates/base.js');
 
 const generateOne = (path, name) => {
   fs.exists(`${path}/${name}.jsx`, (exists) => {

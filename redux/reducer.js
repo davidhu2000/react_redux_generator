@@ -1,9 +1,8 @@
 require('shelljs/global');
 const fs = require('fs');
 
-const caseConverter = require('../helpers/case_converter.js');
-const logFunctions = require('../helpers/logs.js');
-
+const caseConverter   = require('../helpers/case_converter.js');
+const logFunctions    = require('../helpers/logs.js');
 const reducerTemplate = require('../templates/reducer.js');
 
 const createRootReducerImports = reducerNameArray => {

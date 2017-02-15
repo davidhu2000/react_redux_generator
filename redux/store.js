@@ -1,8 +1,7 @@
 require('shelljs/global');
 const fs = require('fs');
 
-const logFunctions = require('../helpers/logs.js');
-
+const logFunctions  = require('../helpers/logs.js');
 const storeTemplate = require('../templates/store.js');
 
 const generateStore = () => {

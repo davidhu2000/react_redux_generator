@@ -4,14 +4,14 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions  = require('../helpers/logs.js');
 
-const writeAction = (actionName) => (
-`export const ${actionName} = () => (
+const writeUtil = (utilName) => (
+`export const ${utilName} = () => (
   // your code here;
 );
 `
 );
 
-const generateUtil = (name, actions = []) => {
+const generateUtil = (name, utils = []) => {
   name = caseConverter.convert(name, caseConverter.toSnakeCase);
 
   fs.exists(`frontend/util/${name}_util.js`, (exists) => {
@@ -24,9 +24,9 @@ const generateUtil = (name, actions = []) => {
 
       let writeStream = fs.createWriteStream(`${name}_util.js`);
 
-      let data = actions.map( action => {
-        action = caseConverter.convert(action,caseConverter.toLowerCamelCase);
-        return writeAction(action);
+      let data = utils.map( util => {
+        util = caseConverter.convert(util,caseConverter.toLowerCamelCase);
+        return writeUtil(util);
       }).join('\n');
 
       writeStream.write(data);

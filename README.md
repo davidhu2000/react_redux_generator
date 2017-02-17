@@ -18,6 +18,11 @@ npm install -g redux-file-gen
 
 In order to create the terminal command `redux`, this package needs to be installed globally.
 
+## Usage
+
+```
+redux [command] [fileType] [options]
+```
 
 ## Example file structure
 
@@ -39,14 +44,6 @@ frontend
   |- util
     |- api_util.js
   |- project_name.jsx
-```
-
-
-
-## Usage
-
-```
-redux [command] [fileType] [options]
 ```
 
 ## Commands

@@ -41,29 +41,47 @@ frontend
   |- project_name.jsx
 ```
 
-**Table of Content:**
-- [Base](#base)
-- [Action](#action)
-- [Component](#component)
-- [Reducer](#reducer)
-- [Store](#store)
-- [Utility](#util)
 
 
-## Command helps
-To see all the available commands from the terminal, run
+## Usage
+
 ```
-redux help
-```
-or
-```
-redux --help
-```
-or
-```
-redux -h
+redux [command] [fileType] [options]
 ```
 
+## Commands
+
+| Command       | Function                              |
+|---------------|---------------------------------------|
+|`generate`     | use the file generator                |
+|`g`            | alias for `generate`                  |
+| `--help`      | see available commands                |
+| `-h`          | alias for `--help`                    |
+
+## FileTypes
+
+| FileType                                | Function                                                            |
+|-----------------------------------------|---------------------------------------------------------------------|
+| `base <projectName>`                    | generate `app.jsx`, `root.jsx`, `<projectName>.jsx`, and `store.js` |
+| `action <name> [action1] [action2] ...` | generate `<name>_actions.js` with specified actions                 |
+| `component <name> [options]`            | generate `<name>.jsx` and `<name>_container.jsx`                    |
+| `reducer <name>`                        | generate `<name>_reducer.js`                                        |
+| `util <name> [util1] [util2] ...`       | generate `<name>_util.js` with specified utils                      |
+
+## Options
+
+| Option                    | Function                                |
+|---------------------------|-----------------------------------------|
+| `-f`, `--functional`      | create functional component             |
+| `-nc1`, `--no-container`  | do not create component container       |
+
+## For more details regard different types of files
+- [Base](docs/base.md)
+- [Action](docs/action.md)
+- [Component](docs/component.md)
+- [Reducer](docs/reducer.md)
+- [Store](docs/store.md)
+- [Utility](docs/util.md)
 
 ## Contributing
 

@@ -3,7 +3,7 @@
 To generate an action file, run
 
 ```
-redux g action [name] [action1] [action2] ...
+redux g action <name> [action1] [action2] ...
 ```
 
 _Do not enter `_actions.js` as part of the name_

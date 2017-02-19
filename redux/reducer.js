@@ -29,7 +29,7 @@ const createRootReducerKeyPairs = reducerNameArray => {
 
 const updateRootReducer = (nameLCC, nameSC) => {
 
-  fs.exists(`root_reducer.js`, (exists) => {
+  fs.exists(`root_reducer.js`, exists => {
     if(exists) {
       let root = fs.readFileSync('root_reducer.js', 'utf8');
       let keyValStr = 'const rootReducer = combineReducers({\n';
@@ -50,6 +50,7 @@ const createReducer = (name, ...actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
   let reducerFiles;
+  let fileName = `${nameSC}_reducer.js`;
 
   if (fs.existsSync('frontend/reducers')) {
     reducerFiles = fs.readdirSync('frontend/reducers');
@@ -57,15 +58,14 @@ const createReducer = (name, ...actions) => {
     reducerFiles = [];
   }
 
-  fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
+  fs.exists(`frontend/reducers/${fileName}`, exists => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(fileName);
     } else {
-      let filename = `${nameSC}_reducer.js`;
       mkdir('-p',`frontend/reducers/`);
       cd('frontend/reducers');
 
-      var writeStream = fs.createWriteStream(filename);
+      var writeStream = fs.createWriteStream(fileName);
       if (name === 'root') {
         let importStatements = createRootReducerImports(reducerFiles);
         let keyPairStatements = createRootReducerKeyPairs(reducerFiles);
@@ -77,7 +77,7 @@ const createReducer = (name, ...actions) => {
         updateRootReducer(nameLCC, nameSC);
       }
 
-      logFunctions.createFileLog(`frontend/reducers/${nameSC}_reducer.js`);
+      logFunctions.createFileLog(`frontend/reducers/${fileName}`);
     }
   });
 

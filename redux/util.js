@@ -14,7 +14,9 @@ const writeUtil = (utilName) => (
 const generateUtil = (name, utils = []) => {
   name = caseConverter.convert(name, caseConverter.toSnakeCase);
 
-  fs.exists(`frontend/util/${name}_util.js`, (exists) => {
+  let fileName = `${name}_util.js`;
+
+  fs.exists(`frontend/util/${fileName}`, (exists) => {
     if(exists) {
       logFunctions.fileExistErrorLog();
     } else {
@@ -22,7 +24,7 @@ const generateUtil = (name, utils = []) => {
       mkdir('-p', 'frontend/util/');
       cd('frontend/util');
 
-      let writeStream = fs.createWriteStream(`${name}_util.js`);
+      let writeStream = fs.createWriteStream(fileName);
 
       let data = utils.map( util => {
         util = caseConverter.convert(util,caseConverter.toLowerCamelCase);
@@ -32,7 +34,7 @@ const generateUtil = (name, utils = []) => {
       writeStream.write(data);
       writeStream.close();
       cd('..');
-      logFunctions.createFileLog(`frontend/util/${name}_util.js`);
+      logFunctions.createFileLog(`frontend/util/${fileName}`);
     }
   });
 };

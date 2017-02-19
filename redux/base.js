@@ -8,7 +8,7 @@ const baseTemplate  = require('../templates/base.js');
 const generateOne = (path, name) => {
   fs.exists(`${path}/${name}.jsx`, (exists) => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(`${name}.jsx`);
     } else {
       mkdir('-p',`${path}/`);
       cd(path);

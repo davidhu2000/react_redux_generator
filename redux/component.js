@@ -10,9 +10,9 @@ const generateComponent = (name, flags) => {
   let nameUCC = caseConverter.convert(name, caseConverter.toUpperCamelCase);
   flags = flags.join('');
 
-  fs.exists(`frontend/components/${nameSC}/${nameSC}.jsx`, (exists) => {
+  fs.exists(`frontend/components/${nameSC}/${nameSC}.jsx`, exists => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(`${nameSC}.jsx`);
     } else {
 
       mkdir('-p', `frontend/components/${nameSC}`);

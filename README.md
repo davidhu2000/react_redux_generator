@@ -4,9 +4,11 @@
 
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
+## New features in version 1.2
+- Action generator detect keyword `receive` and automatically add automatically add the argument name and key-value pair to the function.
 
 ## New features in version 1.1
-- Component generator can accept `-f` and `-nc` flags.
+- Component generator can accept `-f`/`--functional` and `-nc`/`--no-container` flags.
 - When generating `root_reducer.js`, all existing reducers will be imported and added to `combineReducers`.
 - `root_reducer.js` will update with import statement and key-value pairs whenever a new reducer is created.
 

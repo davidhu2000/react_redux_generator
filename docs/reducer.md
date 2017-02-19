@@ -26,7 +26,7 @@ export default rootReducer;
 To generate a reducer, run
 
 ```
-redux g reducer [name]
+redux g reducer <name>
 ```
 
 _Do not enter `_reducer.js` as part of the name_

@@ -3,7 +3,7 @@
 To generate a utility file, run
 
 ```
-redux g util [name] [action1] [action2] ...
+redux g util <name> [action1] [action2] ...
 ```
 
 For example:

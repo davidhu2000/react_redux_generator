@@ -3,7 +3,7 @@
 To generate a component run
 
 ```
-redux g component [name]
+redux g component <name>
 ```
 
 For example,

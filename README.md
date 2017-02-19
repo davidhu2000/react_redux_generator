@@ -72,7 +72,7 @@ frontend
 | Option                    | Function                                |
 |---------------------------|-----------------------------------------|
 | `-f`, `--functional`      | create functional component             |
-| `-nc`, `--no-container`  | do not create component container       |
+| `-nc`, `--no-container`   | do not create component container       |
 
 ## For more details regard different types of files
 - [Base](docs/base.md)

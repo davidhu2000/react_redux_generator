@@ -8,12 +8,23 @@ const writeConstant = constName => (
 `export const ${constName} = '${constName}';`
 );
 
-const writeAction = (actionName, constName) => (
-`export const ${actionName} = () => ({
-  type: ${constName}
+const writeAction = (actionName, constName) => {
+  let arg = '()';
+  let data = '';
+
+  if(/receive/.test(actionName)) {
+    arg = actionName.replace('receive', '')
+    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase)
+    data = `,\n  ${arg}`;
+  }
+
+  return (
+`export const ${actionName} = ${arg} => ({
+  type: ${constName}${data}
 });
 `
-);
+  );
+};
 
 const generateAction = (name, actions) => {
   let fullPath = `frontend/actions/${name}_actions.js`

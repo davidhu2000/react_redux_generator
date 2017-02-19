@@ -3,19 +3,19 @@
 Running
 
 ```
-redux generate base [project_name]
+redux generate base <projectName>
 ```
 
 or
 
 ```
-redux g base [project_name]
+redux g base <projectName>
 ```
 
 will create 4 files. `g` is simply an alias for `generate`.
 
 ```
-frontend/[project_name].jsx
+frontend/<projectName>.jsx
 frontend/components/app.jsx
 frontend/components/root.jsx
 frontend/store/store.js

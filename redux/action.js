@@ -27,16 +27,17 @@ const writeAction = (actionName, constName) => {
 };
 
 const generateAction = (name, actions) => {
-  let fullPath = `frontend/actions/${name}_actions.js`
+  let fileName = `${name}_actions.js`
+  let fullPath = `frontend/actions/${fileName}`
 
   fs.exists(fullPath, (exists) => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(fileName);
     } else {
       mkdir('-p', 'frontend/actions/');
       cd('frontend/actions');
 
-      let writeStream = fs.createWriteStream(`${name}_actions.js`);
+      let writeStream = fs.createWriteStream(fileName);
 
       let constNames = actions.map( action => (
         caseConverter.convert(action, caseConverter.toScreamingSnakeCase)

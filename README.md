@@ -5,7 +5,8 @@
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
 ## New features in version 1.2
-- [Action](docs/action.md) generator detect keyword `receive` in action name and automatically add automatically add the argument name and key-value pair to the function.
+- [Action](docs/action.md) generator detect keyword `receive` in action name and automatically add the argument name and key-value pair to the function.
+- [Util](docs/util.md) generator detect keyword `fetch` in util name and automatically add a basic `ajax` request in the body of the function.
 
 ## New features in version 1.1
 - [Component](docs/component.md) generator can accept `-f`/`--functional` and `-nc`/`--no-container` flags.
@@ -26,26 +27,26 @@ In order to create the terminal command `redux`, this package needs to be instal
 redux [command] [fileType] [options]
 ```
 
-## Example file structure
+## File structure
 
 ```
 frontend
   |- actions
-    |- session_actions.js
+    |- <actionName>_actions.js
   |- components
-    |- session_form
-      |- session_form.jsx
-      |- session_form_container.jsx
+    |- <componentName>
+      |- <componentName>.jsx
+      |- <componentName>_container.jsx
     |- app.jsx
     |- root.jsx
   |- reducers
     |- root_reducer.js
-    |- session_reducer.js
+    |- <reducerName>_reducer.js
   |- store
     |- store.js
   |- util
-    |- api_util.js
-  |- project_name.jsx
+    |- <utilName>_util.js
+  |- <projectName>.jsx
 ```
 
 ## Commands

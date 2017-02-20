@@ -4,13 +4,6 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions  = require('../helpers/logs.js');
 
-// const writeUtil = (utilName) => (
-// `export const ${utilName} = () => (
-//   // your code here;
-// );
-// `
-// );
-
 const writeUtil = (utilName, constName) => {
   let arg = '()';
   let data = '// your code here';

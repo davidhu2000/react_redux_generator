@@ -24,26 +24,26 @@ In order to create the terminal command `redux`, this package needs to be instal
 redux [command] [fileType] [options]
 ```
 
-## Example file structure
+## File structure
 
 ```
 frontend
   |- actions
-    |- session_actions.js
+    |- <actionName>_actions.js
   |- components
-    |- session_form
-      |- session_form.jsx
-      |- session_form_container.jsx
+    |- <componentName>
+      |- <componentName>.jsx
+      |- <componentName>_container.jsx
     |- app.jsx
     |- root.jsx
   |- reducers
     |- root_reducer.js
-    |- session_reducer.js
+    |- <reducerName>_reducer.js
   |- store
     |- store.js
   |- util
-    |- api_util.js
-  |- projectName.jsx
+    |- <utilName>_util.js
+  |- <projectName>.jsx
 ```
 
 ## Commands

@@ -4,12 +4,30 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions  = require('../helpers/logs.js');
 
-const writeUtil = (utilName) => (
-`export const ${utilName} = () => (
-  // your code here;
-);
+// const writeUtil = (utilName) => (
+// `export const ${utilName} = () => (
+//   // your code here;
+// );
+// `
+// );
+
+const writeUtil = (utilName, constName) => {
+  let arg = '()';
+  let data = '// your code here';
+
+  if(/fetch/.test(utilName)) {
+    arg = utilName.replace('fetch', '')
+    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase)
+    data = `$.ajax({\n    method: '',\n    url: '',\n    data: ''\n  })`;
+  }
+
+  return (
+`export const ${utilName} = ${arg} => ({
+  ${data}
+});
 `
-);
+  );
+};
 
 const generateUtil = (name, utils = []) => {
   name = caseConverter.convert(name, caseConverter.toSnakeCase);

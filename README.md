@@ -5,7 +5,7 @@
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
 ## New features in version 1.2
-- [Action](docs/action.md) generator detect keyword `receive` and automatically add automatically add the argument name and key-value pair to the function.
+- [Action](docs/action.md) generator detect keyword `receive` in action name and automatically add automatically add the argument name and key-value pair to the function.
 
 ## New features in version 1.1
 - [Component](docs/component.md) generator can accept `-f`/`--functional` and `-nc`/`--no-container` flags.

@@ -15,10 +15,8 @@ export default ${name}Reducer;`
 const root = (imports, keyPairs) => (
 `import { combineReducers } from 'redux';
 ${imports}
-
 const rootReducer = combineReducers({
-${keyPairs}
-});
+${keyPairs}});
 
 export default rootReducer;`
 );

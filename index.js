@@ -17,7 +17,7 @@ let type          = process.argv[3];
 let name          = process.argv[4];
 let actions       = process.argv.slice(5);
 
-if (['help', '--help', '-h'].includes(method)) {
+if (['help', '--help', '-h', undefined].includes(method)) {
   helpTemplates.helpTemplate();
 } else if (['version', '-v', '--version'].includes(method)) {
   console.log('v' + require('./package.json').version);

@@ -3,7 +3,7 @@ const reducer = name => (
 
 _defaultState = {}
 
-const ${name}Reducer = (state = {}, action) => {
+const ${name}Reducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
     default:

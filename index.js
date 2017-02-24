@@ -29,7 +29,7 @@ if (['help', '--help', '-h', undefined].includes(method)) {
   if(method === 'g' || method === 'generate') {
     switch(type) {
       case 'reducer':
-        generateReducer(name, actions);
+        generateReducer(name);
         break;
       case 'store':
         generateStore();

@@ -46,7 +46,7 @@ const updateRootReducer = (nameLCC, nameSC) => {
   });
 }
 
-const createReducer = (name, ...actions) => {
+const createReducer = (name) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
   let reducerFiles;

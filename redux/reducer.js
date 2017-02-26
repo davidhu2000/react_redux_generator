@@ -39,7 +39,7 @@ const updateRootReducer = (nameLCC, nameSC) => {
 
       let importStr = 'import { combineReducers } from \'redux\';\n'
       let iIdx = root.indexOf(importStr) + importStr.length;
-      root = root.slice(0, iIdx) + `import ${nameLCC}Reducer from './${nameSC}_reducer.js'\n` + root.slice(iIdx);
+      root = root.slice(0, iIdx) + `import ${nameLCC}Reducer from './${nameSC}_reducer.js;'\n` + root.slice(iIdx);
 
       fs.writeFileSync('root_reducer.js', root);
     }

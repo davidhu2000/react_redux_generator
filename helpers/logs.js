@@ -1,7 +1,7 @@
 const colors = require('colors');
 
-const fileExistErrorLog = () => {
-  console.log("  error: ".red.bold, "File exists. Cannot overwrite.");
+const fileExistErrorLog = fileName => {
+  console.log("  error: ".red.bold, `${fileName} exists. Cannot overwrite.`);
 };
 
 const noMethodErrorLog = () => {

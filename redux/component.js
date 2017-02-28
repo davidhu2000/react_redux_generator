@@ -12,7 +12,7 @@ const generateComponent = (name, flags) => {
 
   fs.exists(`frontend/components/${nameSC}/${nameSC}.jsx`, (exists) => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(`${nameSC}.jsx`);
     } else {
 
       mkdir('-p', `frontend/components/${nameSC}`);

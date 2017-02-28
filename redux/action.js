@@ -20,7 +20,7 @@ const generateAction = (name, actions) => {
 
   fs.exists(fullPath, (exists) => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(`${name}_actions.js`);
     } else {
       mkdir('-p', 'frontend/actions/');
       cd('frontend/actions');

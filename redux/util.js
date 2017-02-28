@@ -16,7 +16,7 @@ const generateUtil = (name, utils = []) => {
 
   fs.exists(`frontend/util/${name}_util.js`, (exists) => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(`${name}_util.js`);
     } else {
 
       mkdir('-p', 'frontend/util/');

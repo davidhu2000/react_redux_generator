@@ -57,7 +57,7 @@ const createReducer = (name) => {
 
   fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
     if(exists) {
-      logFunctions.fileExistErrorLog();
+      logFunctions.fileExistErrorLog(`${nameSC}_reducer.js`);
     } else {
       let filename = `${nameSC}_reducer.js`;
       mkdir('-p',`frontend/reducers/`);

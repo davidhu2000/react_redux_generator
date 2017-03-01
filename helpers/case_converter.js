@@ -22,7 +22,7 @@ const toScreamingSnakeCase = words => (
 
 const convert = (words, fs) => {
   let wordsArray = words.split('_');
-  if (wordsArray.length === 1) {
+  if (wordsArray.length === 1 && words.toUpperCase() !== words) {
     wordsArray = words.split(/(?=[A-Z])/);
   }
   return fs(wordsArray);

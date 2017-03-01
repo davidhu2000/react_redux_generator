@@ -1,6 +1,6 @@
 {
   "name": "redux-file-gen",
-  "version": "1.1.31",
+  "version": "1.1.32",
   "description": "Generates necessary files for react-redux application",
   "main": "index.js",
   "scripts": {

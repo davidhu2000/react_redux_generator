@@ -11,7 +11,7 @@ const generateReducer   = require('./redux/reducer.js');
 const generateStore     = require('./redux/store.js');
 const generateUtil      = require('./redux/util.js');
 
-let possibleTypes = ['reducer', 'store', 'action', 'util', 'component', 'base'];
+let possibleTypes = ['reducers', 'stores', 'actions', 'utils', 'components', 'bases'].join('');
 let method        = process.argv[2];
 let type          = process.argv[3];
 let name          = process.argv[4];
@@ -28,7 +28,7 @@ if (['help', '--help', '-h'].includes(method)) {
 } else {
   if(method === 'g' || method === 'generate') {
     switch(type) {
-      case 'reducer':
+      case (type.match(/reducers?/) || {}).input:
         generateReducer(name, actions);
         break;
       case 'store':

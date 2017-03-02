@@ -4,12 +4,12 @@ require('shelljs/global');
 const logFunctions      = require('./helpers/logs.js');
 const helpTemplates     = require('./templates/help.js');
 
-const generateAction    = require('./redux/action.js');
-const generateBase      = require('./redux/base.js');
-const generateComponent = require('./redux/component.js');
-const generateReducer   = require('./redux/reducer.js');
-const generateStore     = require('./redux/store.js');
-const generateUtil      = require('./redux/util.js');
+const generateAction    = require('./fileTypes/action.js');
+const generateBase      = require('./fileTypes/base.js');
+const generateComponent = require('./fileTypes/component.js');
+const generateReducer   = require('./fileTypes/reducer.js');
+const generateStore     = require('./fileTypes/store.js');
+const generateUtil      = require('./fileTypes/util.js');
 
 let possibleTypes = ['reducers', 'stores', 'actions', 'utils', 'components', 'bases'].join('');
 let method        = process.argv[2];

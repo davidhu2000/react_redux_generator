@@ -1,0 +1,30 @@
+{
+  "name": "redux-file-gen",
+  "description": "Generates necessary files for react-redux application",
+  "main": "index.js",
+  "authors": [
+    "David Hu <davidhu314@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "reactjs",
+    "redux",
+    "javascript",
+    "react",
+    "react-redux",
+    "generator",
+    "file",
+    "generator",
+    "redux-file-gem"
+  ],
+  "homepage": "https://github.com/davidhu2000/react_redux_generator",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "future_features.md",
+    ".DS_Store"
+  ]
+}

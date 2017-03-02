@@ -19,31 +19,37 @@ let actions       = process.argv.slice(5);
 
 if (['help', '--help', '-h'].includes(method)) {
   helpTemplates.helpTemplate();
+
 } else if (['version', '-v', '--version'].includes(method)) {
   console.log('v' + require('./package.json').version);
+
 } else if (possibleTypes.includes(type) === false) {
   logFunctions.noMethodErrorLog();
+
 } else if(name === undefined && type !== 'store') {
   logFunctions.noNameErrorLog(type);
+
 } else {
+
   if(method === 'g' || method === 'generate') {
+
     switch(type) {
       case (type.match(/reducers?/) || {}).input:
         generateReducer(name, actions);
         break;
-      case 'store':
+      case (type.match(/stores?/) || {}).input:
         generateStore();
         break;
-      case 'action':
+      case (type.match(/actions?/) || {}).input:
         generateAction(name, actions);
         break;
-      case 'util':
+      case (type.match(/utils?/) || {}).input:
         generateUtil(name, actions);
         break;
-      case 'component':
+      case (type.match(/components?/) || {}).input:
         generateComponent(name, actions);
         break;
-      case 'base':
+      case (type.match(/bases?/) || {}).input:
         generateBase(name);
         generateStore();
         break;

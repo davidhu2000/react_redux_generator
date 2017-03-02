@@ -1,5 +1,5 @@
-require('shelljs/global');
 const fs = require('fs');
+const execFile = require('child_process').execFile;
 
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions  = require('../helpers/logs.js');
@@ -34,10 +34,9 @@ const generateAction = (name, actions) => {
     if(exists) {
       logFunctions.fileExistErrorLog(fileName);
     } else {
-      mkdir('-p', 'frontend/actions/');
-      cd('frontend/actions');
+      execFile('mkdir', ['-p', 'frontend/actions/']);
 
-      let writeStream = fs.createWriteStream(fileName);
+      let writeStream = fs.createWriteStream(`${fullPath}`);
 
       let constNames = actions.map( action => (
         caseConverter.convert(action, caseConverter.toScreamingSnakeCase)

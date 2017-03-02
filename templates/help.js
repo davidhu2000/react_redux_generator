@@ -17,6 +17,9 @@ const commandHelp = () => {
 
       generate                                  use the file generator
       g                                         alias for 'generate'
+      -h, --help                                show terminal command help
+      -v, --version                             show current package version
+
     `);
 }
 

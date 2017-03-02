@@ -12,7 +12,7 @@ const generateStore = () => {
     } else {
       mkdir('-p',`frontend/store/`);
       cd('frontend/store');
-      var writeStream = fs.createWriteStream('store.js');
+      let writeStream = fs.createWriteStream('store.js');
       writeStream.write(storeTemplate());
       writeStream.end();
       cd('../..');

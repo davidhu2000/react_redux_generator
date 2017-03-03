@@ -48,14 +48,13 @@ frontend
 
 ## Commands
 
-| Command       | Function                              |
-|---------------|---------------------------------------|
-|`generate`     | use the file generator                |
-|`g`            | alias for `generate`                  |
-| `--help`      | see available commands                |
-| `-h`          | alias for `--help`                    |
-| `--version`   | see current package version           |
-| `-v`          | alias for `--version`                 |
+| Command             | Function                              |
+|---------------------|---------------------------------------|
+|`generate`           | use the file generator                |
+|`g`                  | alias for `generate`                  |
+| `-h` `--help`       | see available commands                |
+| `-v` `--version`    | see current package version           |
+| `-v`                | alias for `--version`                 |
 
 ## FileTypes
 

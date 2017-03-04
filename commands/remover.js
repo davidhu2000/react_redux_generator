@@ -2,14 +2,6 @@ const fs = require('fs');
 
 const logFunctions      = require('../helpers/logs.js');
 
-console.log("Going to delete an existing file");
-fs.unlink('frontend/reducers/root_reducer.js', function(err) {
-   if (err) {
-      return console.error(err);
-   }
-   console.log("File deleted successfully!");
-})
-
 const createFilePath = (type, name) => {
   if(type[type.length -1] === 's') {
     type = type.slice(0, type.length - 1);

@@ -15,11 +15,10 @@ const basicHelp = () => {
 const commandHelp = () => {
   console.log(`  Commands:
 
-      generate                                  use the file generator
-      g                                         alias for 'generate'
-      -h, --help                                show terminal command help
-      -v, --version                             show current package version
-
+      generate,   g                              use the file generator
+      remove,     r                              remove files
+      --help,     -h                             show terminal command help
+      --version,  -v                             show current package version
     `);
 }
 
@@ -30,7 +29,7 @@ const fileTypeHelp = () => {
       base <projectName>                        generate app.jsx, root.jsx, <projectName>.jsx, and store.js
       action <name> [action1] [action2] ...     generate <name>_actions.js with the specified actions
       component <name> [options]                generate <name>.jsx and <name>_container.jsx
-      reducer <name>                            generate <name>_reducer.js
+      reducer <name> [action1] [action2] ...    generate <name>_reducer.js
       store                                     generate store.js
       util <name> [util1] [util2] ...           generate <name>_util.js with specified utils.
 `);
@@ -40,8 +39,8 @@ const optionsHelp = () => {
   console.log(`
   Options:
 
-      -f,  --functional                         create functional component
-      -nc, --no-container                       do not create component container
+      --functional,   -f                         create functional component
+      --no-container, -nc                        do not create component container
 `);
 }
 

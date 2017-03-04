@@ -8,13 +8,11 @@ const reducer = (nameLCC, actions)  => {
     `${caseConverter.convert(action, caseConverter.toScreamingSnakeCase)}`
   ));
 
-  console.log(actionsSSC);
-
-  actionImport = `import {
+  let actionImport = `import {
   ${actionsSSC.join(',\n  ')} } from "${actionFilePath}"
 `
 
-  actionCase = actionsSSC.map(action => (
+  let actionCase = actionsSSC.map(action => (
     `    case ${action}:
       // your code here`
   )).join('\n')

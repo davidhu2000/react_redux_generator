@@ -10,39 +10,26 @@ const createFilePath = (type, name) => {
   return `frontend/${type}s/${name}_${type}.js`;
 }
 
-const deleteFile = path => {
+const deleteFile = (path) => {
   fs.unlink(path, function(err) {
      if (err) {
-        return console.error(err);
+        logFunctions.noExistFileErrorLog(path);
+     } else {
+       logFunctions.removedFileLog(path);
      }
   });
 }
 
 
 const remover = (type, name) => {
+  if( /bases?/.test(type) ) {
 
-
-  switch(type) {
-    case (type.match(/reducers?/) || {}).input:
-      generateReducer(name, actions);
-      break;
-    case (type.match(/stores?/) || {}).input:
-      generateStore();
-      break;
-    case (type.match(/actions?/) || {}).input:
-      generateAction(name, actions);
-      break;
-    case (type.match(/utils?/) || {}).input:
-      generateUtil(name, actions);
-      break;
-    case (type.match(/components?/) || {}).input:
-      generateComponent(name, actions);
-      break;
-    case (type.match(/bases?/) || {}).input:
-      generateBase(name);
-      generateStore();
-      break;
+  } else {
+    path = createFilePath(type, name);
+    deleteFile(path);
   }
+
+
 }
 
 

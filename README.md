@@ -5,8 +5,8 @@
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
 ## New features in version 1.2
-- [Action](docs/action.md) generator detect keyword `receive` in action name and automatically add the argument name and key-value pair to the function.
-- [Util](docs/util.md) generator detect keyword `fetch` in util name and automatically add a basic `ajax` request in the body of the function.
+- [Action](docs/action.md) generator detects keyword `receive` in action name and automatically add the argument name and key-value pair to the function.
+- [Util](docs/util.md) generator detects keyword `fetch` in util name and automatically add a basic `ajax` request in the body of the function.
 - Added command `remove` or `r` to remove generated files.
 - [Reducer](docs/reducer.md) now accepts actions and will automatically add the import and case statements.
 

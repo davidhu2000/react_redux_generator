@@ -17,7 +17,7 @@ const createFileLog = fullPath => {
 };
 
 const removedFileLog = fullPath => {
-  console.log("deleted: ".green.bold, `${fullPath}`);
+  console.log("deleted: ".yellow.bold, `${fullPath}`);
 };
 
 const noExistFileErrorLog = fileName => {

@@ -5,6 +5,7 @@ const logFunctions      = require('./helpers/logs.js');
 const helpTemplates     = require('./templates/help.js');
 
 const generator         = require('./commands/generator.js');
+const remover           = require('./commands/remover.js');
 
 let possibleTypes = ['reducers', 'stores', 'actions', 'utils', 'components', 'bases'].join('');
 let method        = process.argv[2];
@@ -26,6 +27,8 @@ if (['help', '--help', '-h'].includes(method)) {
 
 } else {
   if(method === 'g' || method === 'generate') {
-    generator(type, name, actions)
+    generator(type, name, actions);
+  } else if (method === 'r' || method === 'remove') {
+    remover(type, name);
   }
 }

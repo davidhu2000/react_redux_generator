@@ -54,7 +54,6 @@ frontend
 |`g`                  | alias for `generate`                  |
 | `-h` `--help`       | see available commands                |
 | `-v` `--version`    | see current package version           |
-| `-v`                | alias for `--version`                 |
 
 ## FileTypes
 

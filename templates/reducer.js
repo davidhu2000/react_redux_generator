@@ -5,14 +5,19 @@ const reducer = (nameLCC, actions)  => {
   let actionFilePath = `../actions/${nameSC}_actions.js`;
 
   let actionsSSC = actions.map( action => (
-    `  ${caseConverter.convert(action, caseConverter.toScreamingSnakeCase)}`
+    `${caseConverter.convert(action, caseConverter.toScreamingSnakeCase)}`
   ));
 
   console.log(actionsSSC);
 
   actionImport = `import {
-${actionsSSC.join(',\n')} } from "${actionFilePath}"
+  ${actionsSSC.join(',\n  ')} } from "${actionFilePath}"
 `
+
+  actionCase = actionsSSC.map(action => (
+    `    case ${action}:
+      // your code here`
+  )).join('\n')
 
   return (
 `import { merge } from 'lodash';
@@ -20,6 +25,7 @@ ${actionImport}
 const ${nameLCC}Reducer = (state, action) => {
   Object.freeze(state);
   switch(action.type) {
+${actionCase}
     default:
       return state;
   }

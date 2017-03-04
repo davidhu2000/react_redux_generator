@@ -82,6 +82,10 @@ frontend
 - [Store](docs/store.md)
 - [Utility](docs/util.md)
 
+## Version notes
+
+To see what features are added during each update, click [here](docs/update_notes.md)
+
 ## Contributing
 
 To request a feature or report an issue, click [here](https://github.com/davidhu2000/react_redux_generator/issues).

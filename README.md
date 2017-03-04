@@ -7,6 +7,7 @@ This generator helps to create the necessary files for a react-redux application
 ## New features in version 1.2
 - [Action](docs/action.md) generator detect keyword `receive` in action name and automatically add the argument name and key-value pair to the function.
 - [Util](docs/util.md) generator detect keyword `fetch` in util name and automatically add a basic `ajax` request in the body of the function.
+- Added command `remove` or `r` to remove generated files.
 
 ## New features in version 1.1
 - [Component](docs/component.md) generator can accept `-f`/`--functional` and `-nc`/`--no-container` flags.
@@ -55,6 +56,8 @@ frontend
 |---------------|---------------------------------------|
 |`generate`     | use the file generator                |
 |`g`            | alias for `generate`                  |
+|`remove`       | remove the generated files            |
+|`r`            | alias for `remove`                    |
 | `--help`      | see available commands                |
 | `-h`          | alias for `--help`                    |
 | `--version`   | see current package version           |

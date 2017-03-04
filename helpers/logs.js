@@ -16,9 +16,19 @@ const createFileLog = fullPath => {
   console.log("created: ".green.bold, `${fullPath}`);
 };
 
+const removedFileLog = fullPath => {
+  console.log("deleted: ".green.bold, `${fullPath}`);
+};
+
+const noExistFileErrorLog = fileName => {
+  console.log("  error: ".red.bold, `${fileName} do not exist. Cannot remove.`);
+}
+
 module.exports = {
   fileExistErrorLog,
   noMethodErrorLog,
   noNameErrorLog,
-  createFileLog
+  createFileLog,
+  removedFileLog,
+  noExistFileErrorLog
 };

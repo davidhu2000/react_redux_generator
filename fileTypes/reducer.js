@@ -46,7 +46,7 @@ const updateRootReducer = (nameLCC, nameSC) => {
   });
 }
 
-const createReducer = (name, ...actions) => {
+const createReducer = (name, actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
   let reducerFiles;
@@ -72,7 +72,7 @@ const createReducer = (name, ...actions) => {
         writeStream.write(reducerTemplate.root(importStatements, keyPairStatements));
         writeStream.end();
       } else {
-        writeStream.write(reducerTemplate.reducer(nameLCC));
+        writeStream.write(reducerTemplate.reducer(nameLCC, actions));
         writeStream.end();
         updateRootReducer(nameLCC, nameSC);
       }

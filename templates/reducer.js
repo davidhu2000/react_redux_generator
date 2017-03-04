@@ -1,7 +1,23 @@
-const reducer = name => (
-`import { merge } from 'lodash';
+const caseConverter = require('../helpers/case_converter.js');
 
-const ${name}Reducer = (state, action) => {
+const reducer = (nameLCC, actions)  => {
+  nameSC = caseConverter.convert(nameLCC, caseConverter.toSnakeCase);
+  let actionFilePath = `../actions/${nameSC}_actions.js`;
+
+  let actionsSSC = actions.map( action => (
+    `  ${caseConverter.convert(action, caseConverter.toScreamingSnakeCase)}`
+  ));
+
+  console.log(actionsSSC);
+
+  actionImport = `import {
+${actionsSSC.join(',\n')} } from "${actionFilePath}"
+`
+
+  return (
+`import { merge } from 'lodash';
+${actionImport}
+const ${nameLCC}Reducer = (state, action) => {
   Object.freeze(state);
   switch(action.type) {
     default:
@@ -9,8 +25,9 @@ const ${name}Reducer = (state, action) => {
   }
 };
 
-export default ${name}Reducer;`
-);
+export default ${nameLCC}Reducer;`
+  );
+};
 
 const root = (imports, keyPairs) => (
 `import { combineReducers } from 'redux';

@@ -26,7 +26,7 @@ export default rootReducer;
 To generate a reducer, run
 
 ```
-redux g reducer <name>
+redux g reducer <name> [action1] [action2]
 ```
 
 _Do not enter `_reducer.js` as part of the name_
@@ -34,21 +34,31 @@ _Do not enter `_reducer.js` as part of the name_
 For example:
 
 ```
-redux g reducer session
+redux g reducer session receiveUser receiveErrors clearErrors
 ```
 
 This will generate a file `frontend/reducer/session_reducer.js`:
 
 ```js
 import { merge } from 'lodash';
+import {
+  RECEIVE_USER,
+  RECEIVE_ERRORS,
+  CLEAR_ERRORS } from "../actions/session_actions.js"
 
 const sessionReducer = (state, action) => {
   Object.freeze(state);
   switch(action.type) {
+    case RECEIVE_USER:
+      // your code here
+    case RECEIVE_ERRORS:
+      // your code here
+    case CLEAR_ERRORS:
+      // your code here
     default:
       return state;
   }
-}
+};
 
 export default sessionReducer;
 ```

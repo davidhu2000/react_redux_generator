@@ -65,7 +65,7 @@ frontend
 | `base <projectName>`                    | generate `app.jsx`, `root.jsx`, `<projectName>.jsx`, and `store.js` |
 | `action <name> [action1] [action2] ...` | generate `<name>_actions.js` with specified actions                 |
 | `component <name> [options]`            | generate `<name>.jsx` and `<name>_container.jsx`                    |
-| `reducer <name>`                        | generate `<name>_reducer.js`                                        |
+| `reducer <name> [action1] [action2] ...`| generate `<name>_reducer.js`                                        |
 | `util <name> [util1] [util2] ...`       | generate `<name>_util.js` with specified utils                      |
 
 ## Options

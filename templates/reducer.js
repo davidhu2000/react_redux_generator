@@ -8,25 +8,29 @@ const reducer = (nameLCC, actions)  => {
     `${caseConverter.convert(action, caseConverter.toScreamingSnakeCase)}`
   ));
 
-  let actionImport = `import {
-  ${actionsSSC.join(',\n  ')} } from "${actionFilePath}"
-`
+  let actionImport = `\nimport {
+  ${actionsSSC.join(',\n  ')} } from "${actionFilePath}"`;
 
   let actionCase = actionsSSC.map(action => (
     `    case ${action}:
       // your code here`
-  )).join('\n')
+  )).join('\n');
+
+  actionCase = '\n' + actionCase;
+
+  if(actionsSSC.length === 0) {
+    actionImport = '';
+    actionCase = '';
+  }
 
   return (
-`import { merge } from 'lodash';
-${actionImport}
+`import { merge } from 'lodash';${actionImport}
 
 _defaultState = {}
 
 const ${nameLCC}Reducer = (state = _defaultState, action) => {
   Object.freeze(state);
-  switch(action.type) {
-${actionCase}
+  switch(action.type) {${actionCase}
     default:
       return state;
   }

@@ -23,7 +23,7 @@ ${actionImport}
 
 _defaultState = {}
 
-const ${name}Reducer = (state = _defaultState, action) => {
+const ${nameLCC}Reducer = (state = _defaultState, action) => {
   Object.freeze(state);
   switch(action.type) {
 ${actionCase}

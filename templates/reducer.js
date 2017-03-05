@@ -26,7 +26,7 @@ const reducer = (nameLCC, actions)  => {
   return (
 `import { merge } from 'lodash';${actionImport}
 
-_defaultState = {}
+let _defaultState = {};
 
 const ${nameLCC}Reducer = (state = _defaultState, action) => {
   Object.freeze(state);

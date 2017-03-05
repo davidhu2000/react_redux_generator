@@ -11,7 +11,7 @@ const createRootReducerImports = reducerNameArray => {
     let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
     let nameSC = caseConverter.convert(reducer, caseConverter.toSnakeCase);
 
-    return `import ${nameLCC} from './${reducer}'`;
+    return `import ${nameLCC} from './${reducer}';`;
 
   }).join('\n');
 };

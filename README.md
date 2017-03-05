@@ -47,30 +47,30 @@ frontend
 
 ## Commands
 
-| Command             | Function                              |
-|---------------------|---------------------------------------|
-|`generate`, `g`      | use the file generator                |
-|`remove`, `r`        | remove the generated files            |
-| `-h` `--help`       | see available commands                |
-| `-v` `--version`    | see current package version           |
+| Command           | Function                    |
+|-------------------|-----------------------------|
+| `generate`, `g`   | use the file generator      |
+| `remove`, `r`     | remove the generated files  |
+| `--help`, `-h`    | see available commands      |
+| `--version`, `-v` | see current package version |
 
 
 ## FileTypes
 
-| FileType                                | Function                                                            |
-|-----------------------------------------|---------------------------------------------------------------------|
-| `base <projectName>`                    | generate `app.jsx`, `root.jsx`, `<projectName>.jsx`, and `store.js` |
-| `action <name> [action1] [action2] ...` | generate `<name>_actions.js` with specified actions                 |
-| `component <name> [options]`            | generate `<name>.jsx` and `<name>_container.jsx`                    |
-| `reducer <name> [action1] [action2] ...`| generate `<name>_reducer.js`                                        |
-| `util <name> [util1] [util2] ...`       | generate `<name>_util.js` with specified utils                      |
+| FileType                                 | Function                                                            |
+|------------------------------------------|---------------------------------------------------------------------|
+| `base <projectName>`                     | generate `app.jsx`, `root.jsx`, `<projectName>.jsx`, and `store.js` |
+| `action <name> [action1] [action2] ...`  | generate `<name>_actions.js` with specified actions                 |
+| `component <name> [options]`             | generate `<name>.jsx` and `<name>_container.jsx`                    |
+| `reducer <name> [action1] [action2] ...` | generate `<name>_reducer.js`                                        |
+| `util <name> [util1] [util2] ...`        | generate `<name>_util.js` with specified utils                      |
 
 ## Options
 
-| Option                    | Function                                |
-|---------------------------|-----------------------------------------|
-| `-f`, `--functional`      | create functional component             |
-| `-nc`, `--no-container`   | do not create component container       |
+| Option                  | Function                          |
+|-------------------------|-----------------------------------|
+| `--functional`, `-f`    | create functional component       |
+| `--no-container`, `-nc` | do not create component container |
 
 ## For more details regard different types of files
 - [Base](docs/base.md)

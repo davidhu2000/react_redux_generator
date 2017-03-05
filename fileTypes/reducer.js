@@ -29,7 +29,7 @@ const createRootReducerKeyPairs = reducerNameArray => {
 
 const updateRootReducer = (nameLCC, nameSC) => {
 
-  fs.exists(`root_reducer.js`, (exists) => {
+  fs.exists(`root_reducer.js`, exists => {
     if(exists) {
       let root = fs.readFileSync('root_reducer.js', 'utf8');
       let keyValStr = 'const rootReducer = combineReducers({\n';
@@ -46,36 +46,36 @@ const updateRootReducer = (nameLCC, nameSC) => {
   });
 }
 
-const createReducer = (name) => {
+const createReducer = (name, actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
-  let reducerFiles = [];
+  let reducerFiles;
+  let fileName = `${nameSC}_reducer.js`;
 
   if (fs.existsSync('frontend/reducers')) {
     reducerFiles = fs.readdirSync('frontend/reducers');
   }
 
-  fs.exists(`frontend/reducers/${nameSC}_reducer.js`, (exists) => {
+  fs.exists(`frontend/reducers/${fileName}`, exists => {
     if(exists) {
-      logFunctions.fileExistErrorLog(`${nameSC}_reducer.js`);
+      logFunctions.fileExistErrorLog(fileName);
     } else {
-      let filename = `${nameSC}_reducer.js`;
       mkdir('-p',`frontend/reducers/`);
       cd('frontend/reducers');
 
-      var writeStream = fs.createWriteStream(filename);
+      var writeStream = fs.createWriteStream(fileName);
       if (name === 'root') {
         let importStatements = createRootReducerImports(reducerFiles);
         let keyPairStatements = createRootReducerKeyPairs(reducerFiles);
         writeStream.write(reducerTemplate.root(importStatements, keyPairStatements));
         writeStream.end();
       } else {
-        writeStream.write(reducerTemplate.reducer(nameLCC));
+        writeStream.write(reducerTemplate.reducer(nameLCC, actions));
         writeStream.end();
         updateRootReducer(nameLCC, nameSC);
       }
 
-      logFunctions.createFileLog(`frontend/reducers/${nameSC}_reducer.js`);
+      logFunctions.createFileLog(`frontend/reducers/${fileName}`);
     }
   });
 

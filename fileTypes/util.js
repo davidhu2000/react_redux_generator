@@ -4,17 +4,30 @@ const fs = require('fs');
 const caseConverter = require('../helpers/case_converter.js');
 const logFunctions  = require('../helpers/logs.js');
 
-const writeUtil = (utilName) => (
-`export const ${utilName} = () => (
-  // your code here;
-);
+const writeUtil = (utilName, constName) => {
+  let arg = '()';
+  let data = '// your code here';
+
+  if(/fetch/.test(utilName)) {
+    arg = utilName.replace('fetch', '')
+    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase)
+    data = `$.ajax({\n    method: '',\n    url: '',\n    data: ''\n  })`;
+  }
+
+  return (
+`export const ${utilName} = ${arg} => ({
+  ${data}
+});
 `
-);
+  );
+};
 
 const generateUtil = (name, utils = []) => {
   name = caseConverter.convert(name, caseConverter.toSnakeCase);
 
-  fs.exists(`frontend/util/${name}_util.js`, (exists) => {
+  let fileName = `${name}_util.js`;
+
+  fs.exists(`frontend/util/${fileName}`, (exists) => {
     if(exists) {
       logFunctions.fileExistErrorLog(`${name}_util.js`);
     } else {
@@ -22,7 +35,7 @@ const generateUtil = (name, utils = []) => {
       mkdir('-p', 'frontend/util/');
       cd('frontend/util');
 
-      let writeStream = fs.createWriteStream(`${name}_util.js`);
+      let writeStream = fs.createWriteStream(fileName);
 
       let data = utils.map( util => {
         util = caseConverter.convert(util,caseConverter.toLowerCamelCase);
@@ -32,7 +45,7 @@ const generateUtil = (name, utils = []) => {
       writeStream.write(data);
       writeStream.close();
       cd('..');
-      logFunctions.createFileLog(`frontend/util/${name}_util.js`);
+      logFunctions.createFileLog(`frontend/util/${fileName}`);
     }
   });
 };

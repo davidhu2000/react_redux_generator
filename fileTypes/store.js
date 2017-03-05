@@ -8,7 +8,7 @@ const generateStore = () => {
 
   fs.exists(`frontend/store/store.js`, (exists) => {
     if(exists) {
-      logFunctions.fileExistErrorLog(`store.js`);
+      logFunctions.fileExistErrorLog('store.js');
     } else {
       mkdir('-p',`frontend/store/`);
       cd('frontend/store');

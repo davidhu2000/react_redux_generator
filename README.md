@@ -4,12 +4,11 @@
 
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
-
-## New features in version 1.1
-- Component generator can accept `-f` and `-nc` flags.
-- When generating `root_reducer.js`, all existing reducers will be imported and added to `combineReducers`.
-- `root_reducer.js` will update with import statement and key-value pairs whenever a new reducer is created.
-
+## New features in version 1.2
+- [Action](docs/action.md) generator detects keyword `receive` in action name and automatically add the argument name and key-value pair to the function.
+- [Util](docs/util.md) generator detects keyword `fetch` in util name and automatically add a basic `ajax` request in the body of the function.
+- Added command `remove` or `r` to remove generated files.
+- [Reducer](docs/reducer.md) now accepts actions and will automatically add the import and case statements.
 
 ## Installation
 ```
@@ -50,10 +49,11 @@ frontend
 
 | Command             | Function                              |
 |---------------------|---------------------------------------|
-|`generate`           | use the file generator                |
-|`g`                  | alias for `generate`                  |
+|`generate`, `g`      | use the file generator                |
+|`remove`, `r`        | remove the generated files            |
 | `-h` `--help`       | see available commands                |
 | `-v` `--version`    | see current package version           |
+
 
 ## FileTypes
 
@@ -62,7 +62,7 @@ frontend
 | `base <projectName>`                    | generate `app.jsx`, `root.jsx`, `<projectName>.jsx`, and `store.js` |
 | `action <name> [action1] [action2] ...` | generate `<name>_actions.js` with specified actions                 |
 | `component <name> [options]`            | generate `<name>.jsx` and `<name>_container.jsx`                    |
-| `reducer <name>`                        | generate `<name>_reducer.js`                                        |
+| `reducer <name> [action1] [action2] ...`| generate `<name>_reducer.js`                                        |
 | `util <name> [util1] [util2] ...`       | generate `<name>_util.js` with specified utils                      |
 
 ## Options
@@ -79,6 +79,10 @@ frontend
 - [Reducer](docs/reducer.md)
 - [Store](docs/store.md)
 - [Utility](docs/util.md)
+
+## Version notes
+
+To see what features are added during each update, click [here](docs/update_notes.md)
 
 ## Contributing
 

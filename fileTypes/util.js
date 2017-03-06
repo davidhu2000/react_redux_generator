@@ -9,8 +9,8 @@ const writeUtil = (utilName, constName) => {
   let data = '// your code here';
 
   if(/fetch/.test(utilName)) {
-    arg = utilName.replace('fetch', '')
-    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase)
+    arg = utilName.replace('fetch', '');
+    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase);
     data = `$.ajax({\n    method: '',\n    url: '',\n    data: ''\n  })`;
   }
 

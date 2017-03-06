@@ -9,7 +9,6 @@ const createRootReducerImports = reducerNameArray => {
   return reducerNameArray.map( reducer => {
     let name = reducer.split('.')[0];
     let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
-    let nameSC = caseConverter.convert(reducer, caseConverter.toSnakeCase);
 
     return `import ${nameLCC} from './${reducer}';`;
 

@@ -48,7 +48,7 @@ const updateRootReducer = (nameLCC, nameSC) => {
 const createReducer = (name, actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
-  let reducerFiles;
+  let reducerFiles = [];
   let fileName = `${nameSC}_reducer.js`;
 
   if (fs.existsSync('frontend/reducers')) {

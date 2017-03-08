@@ -15,9 +15,9 @@ const writeUtil = (utilName, constName) => {
   }
 
   return (
-`export const ${utilName} = ${arg} => ({
+`export const ${utilName} = ${arg} => (
   ${data}
-});
+);
 `
   );
 };

@@ -27,8 +27,10 @@ const writeAction = (actionName, constName) => {
 };
 
 const generateAction = (name, actions) => {
-  let fileName = `${name}_actions.js`
-  let fullPath = `frontend/actions/${fileName}`
+  let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
+
+  let fileName = `${nameSC}_actions.js`;
+  let fullPath = `frontend/actions/${fileName}`;
 
   fs.exists(fullPath, (exists) => {
     if(exists) {

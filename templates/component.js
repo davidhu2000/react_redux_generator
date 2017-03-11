@@ -1,4 +1,4 @@
-const functional = (name) => (
+const functional = name => (
 `import React from 'react';
 
 const ${name} = (props) => (
@@ -9,7 +9,7 @@ export default ${name};
 `
 );
 
-const presentational = (name) => (
+const presentational = name => (
 `import React from 'react';
 
 class ${name} extends React.Component {

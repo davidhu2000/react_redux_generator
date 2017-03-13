@@ -9,7 +9,7 @@ const reducer = (nameLCC, actions)  => {
   ));
 
   let actionImport = `\nimport {
-  ${actionsSSC.join(',\n  ')} } from "${actionFilePath}"`;
+  ${actionsSSC.join(',\n  ')} } from "${actionFilePath}";`;
 
   let actionCase = actionsSSC.map(action => (
     `    case ${action}:

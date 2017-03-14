@@ -30,6 +30,5 @@ if (['help', '--help', '-h', undefined].includes(method)) {
     generator(type, name, actions);
   } else if (method === 'r' || method === 'remove') {
     remover(type, name);
-
   }
 }

@@ -1,6 +1,7 @@
 const fs = require('fs');
 
 const logFunctions      = require('../helpers/logs.js');
+const caseConverter     = require('../helpers/case_converter.js');
 
 // function to delete a single file
 const deleteFile = (path) => {
@@ -18,9 +19,11 @@ const removeFile = (type, name) => {
     type = type.slice(0, type.length - 1);
   }
 
+  let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
+
   if (type === 'component') {
-    let componentPath = `frontend/components/${name}/${name}.jsx`;
-    let containerPath = `frontend/components/${name}/${name}_container.jsx`;
+    let componentPath = `frontend/components/${nameSC}/${nameSC}.jsx`;
+    let containerPath = `frontend/components/${nameSC}/${nameSC}_container.jsx`;
     deleteFile(containerPath);
     deleteFile(componentPath);
   } else {
@@ -28,7 +31,7 @@ const removeFile = (type, name) => {
     if (type === 'action') {
       fileEnding += 's';
     }
-    let path = `frontend/${type}s/${name}_${fileEnding}.js`;
+    let path = `frontend/${type}s/${nameSC}_${fileEnding}.js`;
     deleteFile(path);
   }
 }

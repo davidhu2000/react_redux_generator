@@ -5,9 +5,9 @@ const caseConverter     = require('../helpers/case_converter.js');
 
 // function to delete a single file
 const deleteFile = (path) => {
-  fs.unlink(path, function(err) {
+  fs.unlink(path, err => {
      if (err) {
-        logFunctions.noExistFileErrorLog(path);
+       logFunctions.noExistFileErrorLog(path);
      } else {
        logFunctions.removedFileLog(path);
      }

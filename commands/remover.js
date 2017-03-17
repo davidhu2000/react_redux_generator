@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const logFunctions      = require('../helpers/logs.js');
-const caseConverter     = require('../helpers/case_converter.js');
+const logFunctions  = require('../helpers/logs.js');
+const caseConverter = require('../helpers/case_converter.js');
 
 // function to delete a single file
 const deleteFile = (path) => {

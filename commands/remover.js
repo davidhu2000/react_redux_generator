@@ -4,13 +4,17 @@ const logFunctions  = require('../helpers/logs.js');
 const caseConverter = require('../helpers/case_converter.js');
 
 // function to delete a single file
-const deleteFile = (path) => {
-  fs.unlink(path, err => {
-     if (err) {
-       logFunctions.noExistFileErrorLog(path);
-     } else {
-       logFunctions.removedFileLog(path);
-     }
+const deleteFile = path => {
+  fs.exists(path, exists => {
+    if(exists) {
+      fs.unlink(path, err => {
+         if (!err) {
+           logFunctions.removedFileLog(path);
+         }
+      });
+    } else {
+      logFunctions.noExistFileErrorLog(path);
+    }
   });
 }
 

@@ -1,6 +1,6 @@
 ## Action
 
-To generate an action file, run
+To generate an actions file, run
 
 ```
 redux g action <name> [action1] [action2] ...
@@ -14,7 +14,7 @@ For example:
 redux g action song receiveSong playSong
 ```
 
-The generator will create a file `frontend/actions/song_actions.js` in the actions folder. It will interpret the actions to create constants and action objects. In this example, it will create a `.js` file like below:
+The generator will create a file at `frontend/actions/song_actions.js`. It will interpret the actions to create constants and action objects. In this example, the above command will create a `.js` file:
 
 ```js
 export const RECEIVE_SONG = 'RECEIVE_SONG';
@@ -30,4 +30,4 @@ export const playSong = () => ({
 });
 ```
 
-**Note:** The action generator will look for the word `receive` in the action names, and automatically add the argument name and key-value pair to the function. This is why `receiveSong` has a `song` argument and `song` value in the returned object. 
+**Note:** The action generator will look for the word `receive` in the action names, and automatically add the argument name and key-value pair to the function. This is why `receiveSong` has a `song` argument and `song` value in the returned object.

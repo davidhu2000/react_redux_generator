@@ -63,6 +63,7 @@ The component command supports two flags
 - `-f` or `--functional`. This creates a functional component that does not extend `React.Component`.
 
 ```js
+// functional component
 import React from 'react';
 
 const ListItem = (props) => (

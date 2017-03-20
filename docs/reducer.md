@@ -44,7 +44,7 @@ import { merge } from 'lodash';
 import {
   RECEIVE_USER,
   RECEIVE_ERRORS,
-  CLEAR_ERRORS } from "../actions/session_actions.js"
+  CLEAR_ERRORS } from "../actions/session_actions.js";
 
 const sessionReducer = (state, action) => {
   Object.freeze(state);

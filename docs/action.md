@@ -14,7 +14,7 @@ For example:
 redux g action song receiveSong playSong
 ```
 
-The generator will create a file at `frontend/actions/song_actions.js`. It will interpret the actions to create constants and action objects. In this example, the above command will create a `.js` file:
+The generator will create a file at `frontend/actions/song_actions.js`. It will interpret the actions to create constants and action objects.
 
 ```js
 export const RECEIVE_SONG = 'RECEIVE_SONG';

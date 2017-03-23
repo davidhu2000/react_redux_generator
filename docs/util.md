@@ -3,7 +3,7 @@
 To generate a utility file, run
 
 ```
-redux g util <name> [action1] [action2] ...
+redux g util <name> [util1] [util2] ...
 ```
 
 For example:
@@ -30,4 +30,4 @@ export const getData = () => (
 );
 ```
 
-Having the word `fetch` in the util actions will automatically create a blank `ajax` request. 
+Having the word `fetch` in the utils will automatically create a blank `ajax` request.

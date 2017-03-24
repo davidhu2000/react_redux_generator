@@ -6,7 +6,7 @@ const storeTemplate = require('../templates/store.js');
 
 const generateStore = () => {
 
-  fs.exists(`frontend/store/store.js`, (exists) => {
+  fs.exists(`frontend/store/store.js`, exists => {
     if(exists) {
       logFunctions.fileExistErrorLog('store.js');
     } else {

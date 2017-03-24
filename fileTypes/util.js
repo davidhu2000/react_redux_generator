@@ -27,7 +27,7 @@ const generateUtil = (name, utils = []) => {
 
   let fileName = `${name}_util.js`;
 
-  fs.exists(`frontend/util/${fileName}`, (exists) => {
+  fs.exists(`frontend/util/${fileName}`, exists => {
     if(exists) {
       logFunctions.fileExistErrorLog(`${name}_util.js`);
     } else {

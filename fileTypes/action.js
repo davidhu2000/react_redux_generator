@@ -32,7 +32,7 @@ const generateAction = (name, actions) => {
   let fileName = `${nameSC}_actions.js`;
   let fullPath = `frontend/actions/${fileName}`;
 
-  fs.exists(fullPath, (exists) => {
+  fs.exists(fullPath, exists => {
     if(exists) {
       logFunctions.fileExistErrorLog(fileName);
     } else {

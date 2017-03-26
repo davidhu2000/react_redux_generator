@@ -19,6 +19,10 @@ const deleteFile = path => {
 }
 
 const removeFile = (type, name) => {
+  if(type === 'store') {
+    deleteFile('frontend/store/store.js');
+    return;
+  }
   if(type[type.length - 1] === 's') {
     type = type.slice(0, type.length - 1);
   }
@@ -35,7 +39,13 @@ const removeFile = (type, name) => {
     if (type === 'action') {
       fileEnding += 's';
     }
-    let path = `frontend/${type}s/${nameSC}_${fileEnding}.js`;
+    let folder = type;
+
+    if (['action', 'component', 'reducer'].includes(type)) {
+      folder += 's';
+    }
+
+    let path = `frontend/${folder}/${nameSC}_${fileEnding}.js`;
     deleteFile(path);
   }
 }

@@ -31,7 +31,7 @@ const removeFile = (type, name) => {
 
   if (type === 'component') {
     let componentPath = `frontend/components/${nameSC}/${nameSC}.jsx`;
-    let containerPath = `frontend/components/${nameSC}/${nameSC}_container.jsx`;
+    let containerPath = `frontend/components/${nameSC}/index.jsx`;
     deleteFile(containerPath);
     deleteFile(componentPath);
   } else {

@@ -37,7 +37,7 @@ class User extends React.Component {
 export default User;
 ```
 
-- `/frontend/components/user_container.jsx`
+- `/frontend/components/index.jsx`
 
 ```js
 // Container Component

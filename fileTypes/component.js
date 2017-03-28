@@ -36,12 +36,12 @@ const generateComponent = (name, flags) => {
       }
 
       if(!flags.includes('-nc') && !flags.includes('--no-container')) {
-        let writeStreamContainer = fs.createWriteStream(`${nameSC}_container.jsx`);
+        let writeStreamContainer = fs.createWriteStream(`index.jsx`);
         let containerData = componentTemplate.container(nameUCC, nameSC);
         writeStreamContainer.write(containerData);
         writeStreamContainer.close();
 
-        logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}_container.jsx`);
+        logFunctions.createFileLog(`frontend/components/${nameSC}/index.jsx`);
       }
 
 

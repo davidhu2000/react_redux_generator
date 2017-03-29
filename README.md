@@ -32,7 +32,7 @@ frontend
   |- components
     |- <componentName>
       |- <componentName>.jsx
-      |- <componentName>_container.jsx
+      |- index.jsx
     |- app.jsx
     |- root.jsx
   |- reducers

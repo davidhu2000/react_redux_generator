@@ -47,12 +47,12 @@ frontend
 
 ## Commands
 
-| Command           | Function                    |
-|-------------------|-----------------------------|
-| `generate`, `g`   | use the file generator      |
-| `remove`, `r`     | remove the generated files  |
-| `--help`, `-h`    | see available commands      |
-| `--version`, `-v` | see current package version |
+| Command     | Alias | Function                    |
+|-------------|-------|-----------------------------|
+| `generate`  | `g`   | use the file generator      |
+| `remove`    | `r`   | remove the generated files  |
+| `--help`    | `-h`  | see available commands      |
+| `--version` | `-v`  | see current package version |
 
 
 ## FileTypes
@@ -67,10 +67,10 @@ frontend
 
 ## Options
 
-| Option                  | Function                          |
-|-------------------------|-----------------------------------|
-| `--functional`, `-f`    | create functional component       |
-| `--no-container`, `-nc` | do not create component container |
+| Option           | Alias | Function                          |
+|------------------|-------|-----------------------------------|
+| `--functional`   | `-f`  | create functional component       |
+| `--no-container` | `-nc` | do not create component container |
 
 ## For more details regard different types of files
 - [Base](docs/base.md)

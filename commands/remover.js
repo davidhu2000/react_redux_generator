@@ -18,7 +18,7 @@ const deleteFile = path => {
   });
 }
 
-const removeFile = (type, name) => {
+const removeFileType = (type, name) => {
   if(type === 'store') {
     deleteFile('frontend/store/store.js');
     return;
@@ -57,7 +57,7 @@ const remover = (type, name) => {
     deleteFile(`frontend/components/root.jsx`);
     deleteFile(`frontend/store/store.js`);
   } else {
-    removeFile(type, name);
+    removeFileType(type, name);
   }
 }
 

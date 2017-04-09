@@ -18,6 +18,7 @@ const generateComponent = (name, flags) => {
       mkdir('-p', `frontend/components/${nameSC}`);
       cd(`frontend/components/${nameSC}`);
 
+      // write functional component
       if(flags.includes('-f') || flags.includes('--functional')) {
         let writeStreamFunctional = fs.createWriteStream(`${nameSC}.jsx`);
         let functionalData = componentTemplate.functional(nameUCC);
@@ -25,6 +26,7 @@ const generateComponent = (name, flags) => {
         writeStreamFunctional.close();
         logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
 
+      // write full class component
       } else {
 
         let writeStreamPresentation = fs.createWriteStream(`${nameSC}.jsx`);
@@ -34,7 +36,7 @@ const generateComponent = (name, flags) => {
 
         logFunctions.createFileLog(`frontend/components/${nameSC}/${nameSC}.jsx`);
       }
-
+      // write container file
       if(!flags.includes('-nc') && !flags.includes('--no-container')) {
         let writeStreamContainer = fs.createWriteStream(`index.jsx`);
         let containerData = componentTemplate.container(nameUCC, nameSC);

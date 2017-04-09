@@ -18,6 +18,7 @@ const deleteFile = path => {
   });
 }
 
+// function to remove file based on type
 const removeFileType = (type, name) => {
   if(type === 'store') {
     deleteFile('frontend/store/store.js');
@@ -50,6 +51,7 @@ const removeFileType = (type, name) => {
   }
 }
 
+// main remover function
 const remover = (type, name) => {
   if( /bases?/.test(type) ) {
     deleteFile(`frontend/${name}.jsx`);

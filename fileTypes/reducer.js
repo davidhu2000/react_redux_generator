@@ -26,6 +26,7 @@ const createRootReducerKeyPairs = reducerNameArray => {
   }).join(',\n');
 };
 
+// add import statement and key-value pairs to root_reducer.
 const updateRootReducer = (nameLCC, nameSC) => {
 
   fs.exists(`root_reducer.js`, exists => {
@@ -45,6 +46,7 @@ const updateRootReducer = (nameLCC, nameSC) => {
   });
 }
 
+// create reducer file. Update root reducer if needed.
 const createReducer = (name, actions) => {
   let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);

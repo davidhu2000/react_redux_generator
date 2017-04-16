@@ -28,7 +28,6 @@ const generator = (type, name, actions) => {
       generateStore();
       break;
   }
-
-}
+};
 
 module.exports = generator;

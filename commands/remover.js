@@ -16,7 +16,7 @@ const deleteFile = path => {
       logFunctions.noExistFileErrorLog(path);
     }
   });
-}
+};
 
 // function to remove file based on type
 const removeFileType = (type, name) => {
@@ -49,7 +49,7 @@ const removeFileType = (type, name) => {
     let path = `frontend/${folder}/${nameSC}_${fileEnding}.js`;
     deleteFile(path);
   }
-}
+};
 
 // main remover function
 const remover = (type, name) => {
@@ -61,6 +61,6 @@ const remover = (type, name) => {
   } else {
     removeFileType(type, name);
   }
-}
+};
 
 module.exports = remover;

@@ -37,14 +37,14 @@ const updateRootReducer = (nameLCC, nameSC) => {
 
       root = root.slice(0, kvIdx) + `  ${nameLCC}: ${nameLCC}Reducer,\n` + root.slice(kvIdx);
 
-      let importStr = 'import { combineReducers } from \'redux\';\n'
+      let importStr = 'import { combineReducers } from \'redux\';\n';
       let iIdx = root.indexOf(importStr) + importStr.length;
       root = root.slice(0, iIdx) + `import ${nameLCC}Reducer from './${nameSC}_reducer.js';\n` + root.slice(iIdx);
 
       fs.writeFileSync('root_reducer.js', root);
     }
   });
-}
+};
 
 // create reducer file. Update root reducer if needed.
 const createReducer = (name, actions) => {

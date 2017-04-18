@@ -1,18 +1,14 @@
-## Action
+# Action
 
 To generate an actions file, run
 
-```
-redux g action <name> [action1] [action2] ...
-```
+    redux g action <name> [action1] [action2] ...
 
 _Do not enter `_actions.js` as part of the name_
 
 For example:
 
-```
-redux g action song receiveSong playSong
-```
+    redux g action song receiveSong playSong
 
 The generator will create a file at `frontend/actions/song_actions.js`. It will interpret the actions to create constants and action objects.
 

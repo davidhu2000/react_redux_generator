@@ -1,10 +1,8 @@
-## Store
+# Store
 
 To generate a store, run the following code in the terminal:
 
-```
-redux g store
-```
+    redux g store
 
 This will generate `frontend/store/store.js`:
 

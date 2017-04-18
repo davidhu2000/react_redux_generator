@@ -1,16 +1,12 @@
-## Utility
+# Utility
 
 To generate a utility file, run
 
-```
-redux g util <name> [util1] [util2] ...
-```
+    redux g util <name> [util1] [util2] ...
 
 For example:
 
-```
-redux g util api fetchUsers getData
-```
+    redux g util api fetchUsers getData
 
 _Do not include `_util.js` as part of the name_
 

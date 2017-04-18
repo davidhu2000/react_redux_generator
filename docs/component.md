@@ -1,16 +1,12 @@
-## Component
+# Component
 
 To generate a component run
 
-```
-redux g component <name>
-```
+    redux g component <name>
 
 For example,
 
-```
-redux g component user
-```
+    redux g component user
 
 This will generate two files
 
@@ -60,6 +56,7 @@ export default connect(
 ```
 
 The component command supports two flags
+
 - `-f` or `--functional`. This creates a functional component that does not extend `React.Component`.
 
 ```js
@@ -77,14 +74,10 @@ export default ListItem;
 
 For example,
 
-```
-redux g component map -f-nc
-```
+    redux g component map -f-nc
 
 or
 
-```
-redux g component map --functional--no-container
-```
+    redux g component map --functional--no-container
 
 This will create a functional component file without a container.

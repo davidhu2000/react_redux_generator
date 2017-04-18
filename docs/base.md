@@ -1,20 +1,16 @@
-## Base files
+# Base files
 
 Running
 
-```
-redux generate base <projectName>
-```
+    redux generate base <projectName>
 
 or
 
-```
-redux g base <projectName>
-```
+    redux g base <projectName>
 
 will create 4 files. `g` is simply an alias for `generate`.
 
-```
+```file
 frontend/<projectName>.jsx
 frontend/components/app.jsx
 frontend/components/root.jsx

@@ -13,8 +13,8 @@ const writeAction = (actionName, constName) => {
   let data = '';
 
   if(/receive/.test(actionName)) {
-    arg = actionName.replace('receive', '')
-    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase)
+    arg = actionName.replace('receive', '');
+    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase);
     data = `,\n  ${arg}`;
   }
 

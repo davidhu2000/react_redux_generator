@@ -22,7 +22,7 @@ const removedFileLog = fullPath => {
 
 const noExistFileErrorLog = fileName => {
   console.log("  error: ".red.bold, `${fileName} do not exist. Cannot remove.`);
-}
+};
 
 module.exports = {
   fileExistErrorLog,

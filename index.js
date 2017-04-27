@@ -6,7 +6,7 @@ const helpTemplates = require('./templates/help.js');
 const generator     = require('./commands/generator.js');
 const remover       = require('./commands/remover.js');
 
-let possibleTypes   = ['reducers', 'stores', 'actions', 'utils', 'components', 'bases'].join('');
+let possibleTypes   = ['reducers', 'stores', 'actions', 'utils', 'components', 'bases', 'cycles'].join('');
 let method          = process.argv[2];
 let type            = process.argv[3];
 let name            = process.argv[4];

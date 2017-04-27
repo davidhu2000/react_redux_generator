@@ -44,7 +44,7 @@ const generateUtil = (name, utils = []) => {
 
       writeStream.write(data);
       writeStream.close();
-      cd('..');
+      cd('../..');
       logFunctions.createFileLog(`frontend/util/${fileName}`);
     }
   });

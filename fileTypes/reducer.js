@@ -76,6 +76,8 @@ const createReducer = (name, actions) => {
         updateRootReducer(nameLCC, nameSC);
       }
 
+      cd('../..');
+
       logFunctions.createFileLog(`frontend/reducers/${fileName}`);
     }
   });

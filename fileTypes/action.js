@@ -63,6 +63,7 @@ const generateAction = (name, actions) => {
       writeStream.close();
 
       logFunctions.createFileLog(fullPath);
+      cd('../..');
     }
   });
 };

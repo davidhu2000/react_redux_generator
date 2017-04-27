@@ -6,8 +6,14 @@ const generateStore     = require('../fileTypes/store.js');
 const generateUtil      = require('../fileTypes/util.js');
 
 const generator = (type, name, actions) => {
-
+  console.log(type);
   switch(type) {
+    case (type.match(/cycles?/) || {}).input:
+      generateReducer(name, actions);
+      generateAction(name, actions);
+      generateComponent(name, actions);
+      generateUtil(name, actions);
+      break;
     case (type.match(/reducers?/) || {}).input:
       generateReducer(name, actions);
       break;

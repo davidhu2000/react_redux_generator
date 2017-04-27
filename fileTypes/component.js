@@ -46,7 +46,7 @@ const generateComponent = (name, flags) => {
         logFunctions.createFileLog(`frontend/components/${nameSC}/index.jsx`);
       }
 
-
+      cd('../../..');
     }
   });
 };

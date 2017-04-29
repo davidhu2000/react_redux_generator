@@ -1,3 +1,4 @@
+/* global cd mkdir */
 require('shelljs/global');
 const fs = require('fs');
 

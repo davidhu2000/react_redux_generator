@@ -6,3 +6,5 @@ branches:
     - master
 install:
   - npm install
+script: 
+  - mocha

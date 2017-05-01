@@ -2,7 +2,7 @@ let chai = require('chai');
 let assert = chai.assert;
 let expect = chai.expect;
 
-let reducerTemplates = require('../templates/reducer.js');
+let reducerTemplates = require('../../templates/reducer.js');
 
 describe('Reducer Templates', () => {
   describe('#root', () => {

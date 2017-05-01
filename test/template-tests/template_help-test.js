@@ -4,7 +4,7 @@ let expect = chai.expect;
 let sinon = require('sinon');
 require('mocha-sinon');
 
-let helpTemplates = require('../templates/help.js');
+let helpTemplates = require('../../templates/help.js');
 
 describe('Help Templates', () => {
   let spy;

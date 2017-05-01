@@ -2,7 +2,7 @@ let chai = require('chai');
 let assert = chai.assert;
 let expect = chai.expect;
 
-let componentTemplates = require('../templates/component.js');
+let componentTemplates = require('../../templates/component.js');
 
 describe('Component Templates', () => {
   let componentName1;

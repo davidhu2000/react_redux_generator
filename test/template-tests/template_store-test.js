@@ -2,7 +2,7 @@ let chai = require('chai');
 let assert = chai.assert;
 let expect = chai.expect;
 
-let storeTemplates = require('../templates/store.js');
+let storeTemplates = require('../../templates/store.js');
 
 describe('Store Template', () => {
   describe('#storeFormat', () => {

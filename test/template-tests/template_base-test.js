@@ -2,7 +2,7 @@ let chai = require('chai');
 let assert = chai.assert;
 let expect = chai.expect;
 
-let baseTemplates = require('../templates/base.js');
+let baseTemplates = require('../../templates/base.js');
 
 describe('Base Templates', () => {
   describe('#appJSX', () => {

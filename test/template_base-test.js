@@ -4,7 +4,7 @@ let expect = chai.expect;
 
 let baseTemplates = require('../templates/base.js');
 let componentTemplates = require('../templates/component.js');
-let helpTemplates = require('../templates/help.js');
+
 let reducerTemplates = require('../templates/reducer.js');
 let storeTemplates = require('../templates/store.js');
 

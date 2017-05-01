@@ -1,7 +1,7 @@
 const caseConverter = require('../helpers/case_converter.js');
 
 const reducer = (nameLCC, actions)  => {
-  nameSC = caseConverter.convert(nameLCC, caseConverter.toSnakeCase);
+  let nameSC = caseConverter.convert(nameLCC, caseConverter.toSnakeCase);
   let actionFilePath = `../actions/${nameSC}_actions.js`;
 
   let actionsSSC = actions.map( action => (

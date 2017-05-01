@@ -3,7 +3,7 @@ const toSnakeCase = words => (
 );
 
 const toUpperCamelCase = words => (
-  words.map( word => word[0].toUpperCase() + word.slice(1) ).join('')
+  words.map( word => word[0].toUpperCase() + word.slice(1).toLowerCase() ).join('')
 );
 
 const toLowerCamelCase = words => (
@@ -11,7 +11,7 @@ const toLowerCamelCase = words => (
     if (index === 0) {
       return word.toLowerCase();
     } else {
-      return word[0].toUpperCase() + word.slice(1);
+      return word[0].toUpperCase() + word.slice(1).toLowerCase();
     }
   }).join('')
 );

@@ -1,4 +1,3 @@
-/* global rm */
 let chai = require('chai');
 let assert = chai.assert;
 let expect = chai.expect;

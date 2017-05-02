@@ -1,4 +1,3 @@
-/* global rm */
 let chai = require('chai');
 let assert = chai.assert;
 let expect = chai.expect;
@@ -18,22 +17,17 @@ describe('Component Generator', () => {
 
   it('should generate a component file and a container file', () => {
     Promise.resolve(generateComponent('bothTypes', [])).then(() => {
-        expect('frontend/components/both_types/index.jsx').to.be.a.file();
-        expect('frontend/components/both_types/both_types.jsx').to.be.a.file();
+      expect('frontend/components/both_types/index.jsx').to.be.a.file();
+      expect('frontend/components/both_types/both_types.jsx').to.be.a.file().with.contents.that.match(`class BothTypes`);
+      expect('frontend/components/both_types/both_types.jsx').to.be.a.file().with.contents.that.match(`constructor(props)`);
+      expect('frontend/components/both_types/both_types.jsx').to.be.a.file().with.contents.that.match(`render()`);
     });
   });
 
   it('should generate a function component file when receive -f flag', () => {
     Promise.resolve(generateComponent('functional', ['-f'])).then(() => {
-      expect('frontend/components/functional/functional.jsx').to.be.a.file().with.content(`import React from 'react';
-
-const Functional = (props) => (
-
-);
-
-export default Functional;
-`);
-
+      expect('frontend/components/functional/functional.jsx').to.be.a.file().with.contents.that.match(`const Functional = (props)`);
+      expect('frontend/components/functional/functional.jsx').to.be.a.file().with.contents.that.match(`export default Functional;`);
     });
   });
 

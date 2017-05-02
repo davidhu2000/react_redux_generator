@@ -44,4 +44,9 @@ export const actionDos = () => ({
 `;
     expect('frontend/actions/another_actions.js').to.be.a.file().with.content(content);
   }); 
+
+  it('should not overwrite existing file', () => {
+    generateAction('test', ['not']);
+    expect('frontend/actions/test_actions.js').to.be.a.file().and.not.have.content('not');
+  });
 });

@@ -1,9 +1,9 @@
-const generateAction    = require('../fileTypes/action.js');
-const generateBase      = require('../fileTypes/base.js');
-const generateComponent = require('../fileTypes/component.js');
-const generateReducer   = require('../fileTypes/reducer.js');
-const generateStore     = require('../fileTypes/store.js');
-const generateUtil      = require('../fileTypes/util.js');
+const generateAction    = require('../file_types/action.js');
+const generateBase      = require('../file_types/base.js');
+const generateComponent = require('../file_types/component.js');
+const generateReducer   = require('../file_types/reducer.js');
+const generateStore     = require('../file_types/store.js');
+const generateUtil      = require('../file_types/util.js');
 
 const generator = (type, name, actions) => {
   console.log(type);

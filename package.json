@@ -35,6 +35,7 @@
     "shelljs": "^0.7.5"
   },
   "devDependencies": {
+    "bluebird": "^3.5.0",
     "chai": "^3.5.0",
     "chai-fs": "^1.0.0",
     "mocha": "^3.3.0",

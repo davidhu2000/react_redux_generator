@@ -4,21 +4,22 @@ let assert = chai.assert;
 let expect = chai.expect;
 let sinon = require('sinon');
 chai.use(require('chai-fs'));
-require('shelljs');
+let Promise = require('bluebird');
+let rm = Promise.promisify(require('shelljs').rm);
 
-let generateAction = require('../../file_types/action.js');
+let generateAction = Promise.promisify(require('../../file_types/action.js'));
 
 describe('Action Generator', () => {
   let actions;
 
   before(() => {
     actions = ['actionUno', 'actionDos'];
-    generateAction('test', []);
-    generateAction('another', actions);
+    Promise.resolve(generateAction('test', []));
+    Promise.resolve(generateAction('another', actions));
   });
 
   after(() => {
-    rm('-r', 'frontend');
+    Promise.resolve(rm('-r', 'frontend'));
   });
 
   it('should export a function', () => {

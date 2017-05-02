@@ -4,17 +4,18 @@ let assert = chai.assert;
 let expect = chai.expect;
 let sinon = require('sinon');
 chai.use(require('chai-fs'));
-require('shelljs');
+let Promise = require('bluebird');
+let rm = Promise.promisify(require('shelljs').rm);
 
-let generateBase = require('../../file_types/base.js');
+let generateBase = Promise.promisify(require('../../file_types/base.js'));
 
 describe('Base Files Generator', () => {
   before(() => {
-    generateBase('mocha');
+    Promise.resolve(generateBase('mocha'));
   });
 
   after(() => {
-    rm('-r', 'frontend');
+    Promise.resolve(rm('-r', 'frontend'));
   });
 
   it('should export a function', () => {

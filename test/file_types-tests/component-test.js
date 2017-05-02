@@ -4,7 +4,7 @@ let assert = chai.assert;
 let expect = chai.expect;
 let sinon = require('sinon');
 chai.use(require('chai-fs'));
-// require('shelljs');
+
 let Promise = require('bluebird');
 let rm = Promise.promisify(require('shelljs').rm);
 
@@ -12,13 +12,7 @@ let generateComponent = Promise.promisify(require('../../file_types/component.js
 
 describe('Component Generator', () => {
 
-  before(() => {
-
-    // generateComponent('functional', ['-f']);
-    // generateComponent('noContainer', ['-nc']);
-  });
-
-  afterEach(() => {
+  after(() => {
     Promise.resolve(rm('-r', 'frontend'));
   });
 

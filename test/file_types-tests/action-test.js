@@ -11,13 +11,7 @@ let generateAction = Promise.promisify(require('../../file_types/action.js'));
 describe('Action Generator', () => {
   let actions;
 
-  before(() => {
-    actions = ['actionUno', 'actionDos'];
-    Promise.resolve(generateAction('test', []));
-    Promise.resolve(generateAction('another', actions));
-  });
-
-  after(() => {
+  afterEach(() => {
     Promise.resolve(rm('-r', 'frontend'));
   });
 
@@ -27,26 +21,24 @@ describe('Action Generator', () => {
   });
 
   it('should create an empty action file with empty actions array', () => {
-    expect('frontend/actions/test_actions.js').to.be.a.file().with.content('\n\n');
+    Promise.resolve(generateAction('test', [])).then(() => {
+      expect('frontend/actions/test_actions.js').to.be.a.file().with.content('\n\n'); 
+    });
   });
 
   it('should create a file with action constants', () => {
-    let content = `export const ACTION_UNO = 'ACTION_UNO';
-export const ACTION_DOS = 'ACTION_DOS';
-
-export const actionUno = () => ({
-  type: ACTION_UNO
-});
-
-export const actionDos = () => ({
-  type: ACTION_DOS
-});
-`;
-    expect('frontend/actions/another_actions.js').to.be.a.file().with.content(content);
+    Promise.resolve(generateAction('another', ['actionUno', 'actionDos'])).then(() => {
+      expect('frontend/actions/another_actions.js').to.be.a.file();
+      expect('frontend/actions/another_actions.js').to.be.a.file().with.contents.that.match(/export const ACTION_UNO = 'ACTION_UNO'/);
+      expect('frontend/actions/another_actions.js').to.be.a.file().with.contents.that.match(/export const ACTION_DOS = 'ACTION_DOS'/);
+      expect('frontend/actions/another_actions.js').to.be.a.file().with.contents.that.match(/export const actionUno/);
+      expect('frontend/actions/another_actions.js').to.be.a.file().with.contents.that.match(/type: ACTION_UNO/);
+    });
   }); 
 
   it('should not overwrite existing file', () => {
-    generateAction('test', ['not']);
-    expect('frontend/actions/test_actions.js').to.be.a.file().and.not.have.content('not');
+    Promise.resolve(generateAction('test', ['not'])).then(() => {
+      expect('frontend/actions/test_actions.js').to.be.a.file().and.not.have.content('not');
+    });
   });
 });

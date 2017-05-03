@@ -7,7 +7,7 @@ chai.use(require('chai-fs'));
 let Promise = require('bluebird');
 let rm = Promise.promisify(require('shelljs').rm);
 
-let generateStore = require('../../file_types/store.js');
+let generateStore = Promise.promisify(require('../../file_types/store.js'));
 
 describe('Store Generator', () => {
   after(() => {

@@ -14,7 +14,7 @@ describe('Store Generator', () => {
     Promise.resolve(rm('-r', 'frontend'));
   });
 
-  describe('should generate a store file', () => {
+  it('should generate a store file', () => {
     Promise.resolve(generateStore()).then(() => {
       expect('frontend/store/store.js').to.be.a.file();
       expect('frontend/store/store.js').to.be.a.file().with.contents.that.match(/configureStore/);

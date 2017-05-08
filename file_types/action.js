@@ -15,7 +15,7 @@ const writeAction = (actionName, constName) => {
 
   if(/receive/.test(actionName)) {
     arg = actionName.replace('receive', '');
-    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase);
+    arg = caseConverter.convert(arg, caseConverter.toCamelCase);
     data = `,\n  ${arg}`;
   }
 
@@ -47,7 +47,7 @@ const generateAction = (name, actions) => {
       ));
 
       let actionNames = actions.map( action => (
-        caseConverter.convert(action, caseConverter.toLowerCamelCase)
+        caseConverter.convert(action, caseConverter.toCamelCase)
       ));
 
       let data = constNames.map( constName => (

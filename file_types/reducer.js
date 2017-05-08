@@ -9,7 +9,7 @@ const reducerTemplate = require('../templates/reducer.js');
 const createRootReducerImports = reducerNameArray => {
   return reducerNameArray.map( reducer => {
     let name = reducer.split('.')[0];
-    let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
+    let nameLCC = caseConverter.convert(name, caseConverter.toCamelCase);
 
     return `import ${nameLCC} from './${reducer}';`;
 
@@ -20,7 +20,7 @@ const createRootReducerKeyPairs = reducerNameArray => {
   return reducerNameArray.map( reducer => {
     let name = reducer.split('.')[0];
     let key = name.split('_')[0];
-    let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
+    let nameLCC = caseConverter.convert(name, caseConverter.toCamelCase);
 
     return `  ${key}: ${nameLCC}`;
 
@@ -49,7 +49,7 @@ const updateRootReducer = (nameLCC, nameSC) => {
 
 // create reducer file. Update root reducer if needed.
 const createReducer = (name, actions) => {
-  let nameLCC = caseConverter.convert(name, caseConverter.toLowerCamelCase);
+  let nameLCC = caseConverter.convert(name, caseConverter.toCamelCase);
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
   let reducerFiles = [];
   let fileName = `${nameSC}_reducer.js`;

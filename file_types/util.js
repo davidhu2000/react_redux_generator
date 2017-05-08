@@ -11,7 +11,7 @@ const writeUtil = (utilName, constName) => {
 
   if(/fetch/.test(utilName)) {
     arg = utilName.replace('fetch', '');
-    arg = caseConverter.convert(arg, caseConverter.toLowerCamelCase);
+    arg = caseConverter.convert(arg, caseConverter.toCamelCase);
     data = `$.ajax({\n    method: '',\n    url: '',\n    data: ''\n  })`;
   }
 
@@ -39,7 +39,7 @@ const generateUtil = (name, utils = []) => {
       let writeStream = fs.createWriteStream(fileName);
 
       let data = utils.map( util => {
-        util = caseConverter.convert(util,caseConverter.toLowerCamelCase);
+        util = caseConverter.convert(util,caseConverter.toCamelCase);
         return writeUtil(util);
       }).join('\n');
 

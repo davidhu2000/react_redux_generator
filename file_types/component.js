@@ -8,7 +8,7 @@ const componentTemplate = require('../templates/component.js');
 
 const generateComponent = (name, flags) => {
   let nameSC = caseConverter.convert(name, caseConverter.toSnakeCase);
-  let nameUCC = caseConverter.convert(name, caseConverter.toUpperCamelCase);
+  let nameUCC = caseConverter.convert(name, caseConverter.toPascalCase);
   flags = flags.join('');
 
   fs.exists(`frontend/components/${nameSC}/${nameSC}.jsx`, exists => {

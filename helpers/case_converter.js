@@ -2,11 +2,11 @@ const toSnakeCase = words => (
   words.map( word => word.toLowerCase() ).join('_')
 );
 
-const toUpperCamelCase = words => (
+const toPascalCase = words => (
   words.map( word => word[0].toUpperCase() + word.slice(1).toLowerCase() ).join('')
 );
 
-const toLowerCamelCase = words => (
+const toCamelCase = words => (
   words.map( (word, index) => {
     if (index === 0) {
       return word.toLowerCase();
@@ -30,8 +30,8 @@ const convert = (words, fs) => {
 
 module.exports = {
   toSnakeCase,
-  toUpperCamelCase,
-  toLowerCamelCase,
+  toPascalCase,
+  toCamelCase,
   toScreamingSnakeCase,
   convert
 };

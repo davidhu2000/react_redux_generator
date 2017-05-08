@@ -6,18 +6,18 @@ let sinon = require('sinon');
 let caseConverter = require('../../helpers/case_converter.js');
 
 describe('Case Converter', () => {
-  let snakeCase, upperCamelCase, lowerCamelCase, screamingSnakeCase;
-  let snakeCaseWords, upperCamelCaseWords, lowerCamelCaseWords, screamingSnakeCaseWords;
+  let snakeCase, pascalCase, camelCase, screamingSnakeCase;
+  let snakeCaseWords, pascalCaseWords, camelCaseWords, screamingSnakeCaseWords;
 
   beforeEach(() => {
     snakeCase = 'mocha_chai_latte';
     snakeCaseWords = ['mocha', 'chai', 'latte'];
 
-    upperCamelCase = 'MochaChaiLatte';
-    upperCamelCaseWords = ['Mocha', 'Chai', 'Latte'];
+    pascalCase = 'MochaChaiLatte';
+    pascalCaseWords = ['Mocha', 'Chai', 'Latte'];
 
-    lowerCamelCase = 'mochaChaiLatte';
-    lowerCamelCaseWords = ['mocha', 'Chai', 'Latte'];
+    camelCase = 'mochaChaiLatte';
+    camelCaseWords = ['mocha', 'Chai', 'Latte'];
 
     screamingSnakeCase = 'MOCHA_CHAI_LATTE';
     screamingSnakeCaseWords = ['MOCHA', 'CHAI', 'LATTE'];
@@ -34,11 +34,11 @@ describe('Case Converter', () => {
     });
 
     it('should receive string in upper camel case and return string in snake case', () => {
-      assert.equal(caseConverter.toSnakeCase(upperCamelCaseWords), snakeCase);
+      assert.equal(caseConverter.toSnakeCase(pascalCaseWords), snakeCase);
     });
 
     it('should receive string in lower camel case and return string in snake case', () => {
-      assert.equal(caseConverter.toSnakeCase(lowerCamelCaseWords), snakeCase);
+      assert.equal(caseConverter.toSnakeCase(camelCaseWords), snakeCase);
     });
 
     it('should receive string in screaming snake case and return string in snake case', () => {
@@ -46,49 +46,49 @@ describe('Case Converter', () => {
     });
   });
 
-  describe('#toUpperCamelCase', () => {
+  describe('#toPascalCase', () => {
     it('should be a function', () => {
-      expect(caseConverter.toUpperCamelCase).to.exist;
-      expect(caseConverter.toUpperCamelCase).to.be.instanceOf(Function);
+      expect(caseConverter.toPascalCase).to.exist;
+      expect(caseConverter.toPascalCase).to.be.instanceOf(Function);
     });
 
     it('should receive string in snake case and return string in upper camel case', () => {
-      assert.equal(caseConverter.toUpperCamelCase(snakeCaseWords), upperCamelCase);
+      assert.equal(caseConverter.toPascalCase(snakeCaseWords), pascalCase);
     });
 
     it('should receive string in upper camel case and return string in upper camel case', () => {
-      assert.equal(caseConverter.toUpperCamelCase(upperCamelCaseWords), upperCamelCase);
+      assert.equal(caseConverter.toPascalCase(pascalCaseWords), pascalCase);
     });
 
     it('should receive string in lower camel case and return string in upper camel case', () => {
-      assert.equal(caseConverter.toUpperCamelCase(lowerCamelCaseWords), upperCamelCase);
+      assert.equal(caseConverter.toPascalCase(camelCaseWords), pascalCase);
     });
 
     it('should receive string in screaming snake case and return string in upper camel case', () => {
-      assert.equal(caseConverter.toUpperCamelCase(screamingSnakeCaseWords), upperCamelCase);
+      assert.equal(caseConverter.toPascalCase(screamingSnakeCaseWords), pascalCase);
     });
   });
 
-  describe('#toLowerCamelCase', () => {
+  describe('#toCamelCase', () => {
     it('should be a function', () => {
-      expect(caseConverter.toLowerCamelCase).to.exist;
-      expect(caseConverter.toLowerCamelCase).to.be.instanceOf(Function);
+      expect(caseConverter.toCamelCase).to.exist;
+      expect(caseConverter.toCamelCase).to.be.instanceOf(Function);
     });
 
     it('should receive string in snake case and return string in lower camel case', () => {
-      assert.equal(caseConverter.toLowerCamelCase(snakeCaseWords), lowerCamelCase);
+      assert.equal(caseConverter.toCamelCase(snakeCaseWords), camelCase);
     });
 
     it('should receive string in upper camel case and return string in lower camel case', () => {
-      assert.equal(caseConverter.toLowerCamelCase(upperCamelCaseWords), lowerCamelCase);
+      assert.equal(caseConverter.toCamelCase(pascalCaseWords), camelCase);
     });
 
     it('should receive string in lower camel case and return string in lower camel case', () => {
-      assert.equal(caseConverter.toLowerCamelCase(lowerCamelCaseWords), lowerCamelCase);
+      assert.equal(caseConverter.toCamelCase(camelCaseWords), camelCase);
     });
 
     it('should receive string in screaming snake case and return string in lower camel case', () => {
-      assert.equal(caseConverter.toLowerCamelCase(screamingSnakeCaseWords), lowerCamelCase);
+      assert.equal(caseConverter.toCamelCase(screamingSnakeCaseWords), camelCase);
     });
   });
 
@@ -103,11 +103,11 @@ describe('Case Converter', () => {
     });
 
     it('should receive string in upper camel case and return string in screaming snake case', () => {
-      assert.equal(caseConverter.toScreamingSnakeCase(upperCamelCaseWords), screamingSnakeCase);
+      assert.equal(caseConverter.toScreamingSnakeCase(pascalCaseWords), screamingSnakeCase);
     });
 
     it('should receive string in lower camel case and return string in screaming snake case', () => {
-      assert.equal(caseConverter.toScreamingSnakeCase(lowerCamelCaseWords), screamingSnakeCase);
+      assert.equal(caseConverter.toScreamingSnakeCase(camelCaseWords), screamingSnakeCase);
     });
 
     it('should receive string in screaming snake case and return string in screaming snake case', () => {

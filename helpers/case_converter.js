@@ -3,7 +3,9 @@ const toSnakeCase = words => (
 );
 
 const toPascalCase = words => (
-  words.map( word => word[0].toUpperCase() + word.slice(1).toLowerCase() ).join('')
+  words.map( word => (
+    word[0].toUpperCase() + word.slice(1).toLowerCase()
+  )).join('')
 );
 
 const toCamelCase = words => (

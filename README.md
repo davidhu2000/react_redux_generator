@@ -1,6 +1,15 @@
 # React-Redux File Generator
 
-[![npm version](https://badge.fury.io/js/redux-file-gen.svg)](https://badge.fury.io/js/redux-file-gen)  [![Build Status](https://travis-ci.org/davidhu2000/react_redux_generator.svg?branch=master)](https://travis-ci.org/davidhu2000/react_redux_generator)
+[![npm version](https://badge.fury.io/js/redux-file-gen.svg)][npm_url]
+[![downloads](https://img.shields.io/npm/dt/redux-file-gen.svg)][npm_url]
+[![license](https://img.shields.io/npm/l/redux-file-gen.svg)][npm_url]
+[![Build Status](https://travis-ci.org/davidhu2000/react_redux_generator.svg?branch=master)](https://travis-ci.org/davidhu2000/react_redux_generator)
+[![CircleCI](https://circleci.com/gh/davidhu2000/react_redux_generator.svg?style=shield)](https://circleci.com/gh/davidhu2000/react_redux_generator)
+
+[![dependencies Status](https://david-dm.org/davidhu2000/react_redux_generator/status.svg)](https://david-dm.org/davidhu2000/react_redux_generator)
+[![devDependencies Status](https://david-dm.org/davidhu2000/react_redux_generator/dev-status.svg)](https://david-dm.org/davidhu2000/react_redux_generator?type=dev)
+
+[npm_url]: https://www.npmjs.org/package/redux-file-gen
 
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 

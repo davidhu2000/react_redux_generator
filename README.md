@@ -6,6 +6,7 @@
 [![Build Status](https://travis-ci.org/davidhu2000/react_redux_generator.svg?branch=master)](https://travis-ci.org/davidhu2000/react_redux_generator)
 [![CircleCI](https://circleci.com/gh/davidhu2000/react_redux_generator.svg?style=shield)](https://circleci.com/gh/davidhu2000/react_redux_generator)
 
+[![Code Triagers Badge](https://www.codetriage.com/davidhu2000/react_redux_generator/badges/users.svg)](https://www.codetriage.com/davidhu2000/react_redux_generator)
 [![dependencies Status](https://david-dm.org/davidhu2000/react_redux_generator/status.svg)](https://david-dm.org/davidhu2000/react_redux_generator)
 [![devDependencies Status](https://david-dm.org/davidhu2000/react_redux_generator/dev-status.svg)](https://david-dm.org/davidhu2000/react_redux_generator?type=dev)
 

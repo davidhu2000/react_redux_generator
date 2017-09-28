@@ -4,7 +4,8 @@
   "description": "Generates necessary files for react-redux application",
   "main": "index.js",
   "scripts": {
-    "test": "npm install"
+    "test": "mocha test",
+    "patch": "npm version patch && npm publish"
   },
   "repository": {
     "type": "git",

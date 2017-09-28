@@ -14,6 +14,10 @@
 
 This generator helps to create the necessary files for a react-redux application. It follows the file structure below. The `frontend` folder is stored at the root directory of the application.
 
+<a target='_blank' rel='nofollow' href='https://app.codesponsor.io/link/YsWPXzR7ZbjnxKCaLbuyR61q/davidhu2000/react_redux_generator'>
+  <img alt='Sponsor' width='888' height='68' src='https://app.codesponsor.io/embed/YsWPXzR7ZbjnxKCaLbuyR61q/davidhu2000/react_redux_generator.svg' />
+</a>
+
 ## Installation
 
     npm install -g redux-file-gen
